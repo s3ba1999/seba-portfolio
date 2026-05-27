@@ -1,0 +1,13 @@
+# Dev tools (local only)
+.claude/
+serve.ps1
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+*.swp
+*.swo
