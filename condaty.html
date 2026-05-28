@@ -149,11 +149,11 @@
     .book-turn-in  { animation:bookTurnIn  .42s cubic-bezier(0,0,.6,1) forwards; }
 
     /* ── Lightbox ── */
-    #lb-overlay { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.92); backdrop-filter:blur(10px); align-items:center; justify-content:center; }
-    #lb-overlay.active { display:flex; }
-    #lb-img-wrap { position:relative; display:flex; align-items:center; justify-content:center; max-width:92vw; max-height:90vh; overflow:hidden; cursor:grab; touch-action:none; }
+    #lb-overlay { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.92); backdrop-filter:blur(10px); overflow:hidden; }
+    #lb-overlay.active { display:block; }
+    #lb-img-wrap { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; cursor:grab; touch-action:none; }
     #lb-img-wrap.grabbing { cursor:grabbing; }
-    #lb-img { display:block; max-width:92vw; max-height:90vh; object-fit:contain; transform-origin:center; user-select:none; pointer-events:none; border-radius:8px; }
+    #lb-img { display:block; max-width:90vw; max-height:88vh; object-fit:contain; transform-origin:center; user-select:none; pointer-events:none; border-radius:8px; flex-shrink:0; }
     #lb-close { position:fixed; top:18px; right:20px; z-index:10001; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.18); color:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(6px); transition:background .2s; }
     #lb-close:hover { background:rgba(255,255,255,.25); }
     #lb-zoom-bar { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); z-index:10001; display:flex; gap:10px; align-items:center; background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:6px 14px; backdrop-filter:blur(8px); }
@@ -1362,7 +1362,8 @@ if (glow) {
   });
 
   document.getElementById('lb-close').addEventListener('click', e => { e.stopPropagation(); close(); });
-  ov.addEventListener('click', e => { if (e.target === ov) close(); });
+  // wrap fills the full overlay → click on dark area (not on image) closes
+  wrap.addEventListener('click', e => { if (!dragging && e.target !== lbImg) close(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 
   // Zoom buttons
