@@ -3,9 +3,45 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Condaty Case Study · Sebastian Delgado</title>
-  <meta name="description" content="Condaty — Ecosistema SaaS para gestión integral de condominios. Case study por Sebastian Delgado."/>
+  <title>Condaty — Caso de Estudio · Sebastian Delgado</title>
+  <meta name="description" content="Caso de estudio de Condaty: ecosistema SaaS para la gestión integral de condominios. UX research, diseño de producto, branding y desarrollo — por Sebastian Delgado."/>
+  <meta name="author" content="Sebastian Delgado"/>
+  <meta name="keywords" content="Condaty, caso de estudio, case study, product design, UX, SaaS, gestión de condominios, Sebastian Delgado"/>
+  <link rel="canonical" href="https://seba-portfolio.netlify.app/condaty"/>
   <link rel="icon" type="image/png" href="img/logo-white.png"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://seba-portfolio.netlify.app/condaty"/>
+  <meta property="og:site_name" content="Sebastian Delgado Portfolio"/>
+  <meta property="og:title" content="Condaty — Caso de Estudio · Sebastian Delgado"/>
+  <meta property="og:description" content="Cómo diseñé un ecosistema SaaS desde cero para conectar residentes, guardias y administradores en una sola plataforma. +390 usuarios activos, 30% menos pasos operativos."/>
+  <meta property="og:image" content="https://seba-portfolio.netlify.app/img/admindash.png"/>
+  <meta property="og:locale" content="es_BO"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Condaty — Caso de Estudio · Sebastian Delgado"/>
+  <meta name="twitter:description" content="Cómo diseñé un ecosistema SaaS desde cero para conectar residentes, guardias y administradores en una sola plataforma."/>
+  <meta name="twitter:image" content="https://seba-portfolio.netlify.app/img/admindash.png"/>
+
+  <!-- Schema.org: CreativeWork -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Condaty — Caso de Estudio",
+    "description": "Ecosistema SaaS para la gestión integral de condominios: dos apps móviles y un panel web que conectan administradores, guardias y residentes.",
+    "author": {
+      "@type": "Person",
+      "name": "Sebastian Delgado",
+      "url": "https://seba-portfolio.netlify.app"
+    },
+    "url": "https://seba-portfolio.netlify.app/condaty",
+    "image": "https://seba-portfolio.netlify.app/img/admindash.png",
+    "keywords": "SaaS, product design, UX, condominium management, Condaty"
+  }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { darkMode:'class', theme:{ extend:{ colors:{ brand:'#0F2C6E', cyan:'#25C7D7' } } } }
@@ -439,6 +475,73 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     USER FLOWS
+══════════════════════════════ -->
+<section class="py-16 px-5 sm:px-8 relative overflow-hidden">
+  <div class="orb w-[300px] h-[300px] bg-[#00E38C]/6 -right-20 top-0"></div>
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <div data-reveal="up" class="flex items-center justify-center gap-3 mb-3">
+        <div class="h-px w-8 bg-[#00E38C]"></div>
+        <span class="text-xs font-bold tracking-widest text-[#007a4d] dark:text-[#00E38C] uppercase" data-i18n="flow_label">User Flows</span>
+        <div class="h-px w-8 bg-[#00E38C]"></div>
+      </div>
+      <h2 data-reveal="up" data-delay="1" class="text-3xl md:text-4xl font-black text-[#0F2C6E] dark:text-white" data-i18n="flow_title">¿Cómo navega cada rol?</h2>
+    </div>
+
+    <!-- Carousel -->
+    <div data-reveal="up" data-delay="2" class="relative">
+      <!-- Slides -->
+      <div class="overflow-hidden rounded-2xl shadow-2xl shadow-black/20">
+        <div id="flowTrack" class="flex transition-transform duration-500 ease-in-out">
+          <div class="flow-slide w-full flex-shrink-0">
+            <img src="img/residenflow.png" alt="User Flow Residente" class="w-full block" loading="lazy"/>
+          </div>
+          <div class="flow-slide w-full flex-shrink-0">
+            <img src="img/guardiaflow.png" alt="User Flow Guardia" class="w-full block" loading="lazy"/>
+          </div>
+          <div class="flow-slide w-full flex-shrink-0">
+            <img src="img/adminflow.png" alt="User Flow Administrador" class="w-full block" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prev / Next arrows -->
+      <button id="flowPrev" onclick="flowMove(-1)" aria-label="Anterior"
+        class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+        style="background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px);">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button id="flowNext" onclick="flowMove(1)" aria-label="Siguiente"
+        class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+        style="background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px);">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- Dots + labels -->
+    <div class="flex items-center justify-center gap-6 mt-5">
+      <button onclick="flowGoTo(0)" class="flow-dot-btn flex flex-col items-center gap-1.5 group">
+        <span class="flow-dot w-2 h-2 rounded-full transition-all duration-300" style="background:rgba(0,227,140,.35)"></span>
+        <span class="text-[11px] font-semibold text-[#1D1D1D]/50 dark:text-white/40 group-hover:text-[#00E38C] transition-colors" data-i18n="role_residents">Residentes</span>
+      </button>
+      <button onclick="flowGoTo(1)" class="flow-dot-btn flex flex-col items-center gap-1.5 group">
+        <span class="flow-dot w-2 h-2 rounded-full transition-all duration-300" style="background:rgba(0,227,140,.35)"></span>
+        <span class="text-[11px] font-semibold text-[#1D1D1D]/50 dark:text-white/40 group-hover:text-[#00E38C] transition-colors" data-i18n="role_guards">Guardias</span>
+      </button>
+      <button onclick="flowGoTo(2)" class="flow-dot-btn flex flex-col items-center gap-1.5 group">
+        <span class="flow-dot w-2 h-2 rounded-full transition-all duration-300" style="background:rgba(0,227,140,.35)"></span>
+        <span class="text-[11px] font-semibold text-[#1D1D1D]/50 dark:text-white/40 group-hover:text-[#00E38C] transition-colors" data-i18n="role_admins">Administradores</span>
+      </button>
+    </div>
+
   </div>
 </section>
 
@@ -978,6 +1081,7 @@ const T = {
     drr_role_desc:'UX Research, diseño de interfaces, design system, branding, mascota, editorial y App Store assets. End-to-end.',
     drr_result_label:'Resultado', drr_result_title:'Ecosistema lanzado',
     drr_result_desc:'Plataforma en producción con +390 usuarios activos, reducción del 30% en pasos operativos y mejora técnica del 40%.',
+    flow_label:'User Flows', flow_title:'¿Cómo navega cada rol?',
     personas_label:'User Personas', personas_title:'¿Para quién diseñamos?',
     p_needs:'Necesidades', p_pain:'Frustraciones',
     persona_m_role:'Residente · 38 años',
@@ -1053,6 +1157,7 @@ const T = {
     drr_role_desc:'UX Research, interface design, design system, branding, mascot, editorial, and App Store assets. End-to-end.',
     drr_result_label:'Result', drr_result_title:'Ecosystem launched',
     drr_result_desc:'Platform in production with 390+ active users, 30% reduction in operational steps, and 40% technical performance improvement.',
+    flow_label:'User Flows', flow_title:'How does each role navigate?',
     personas_label:'User Personas', personas_title:'Who did we design for?',
     p_needs:'Needs', p_pain:'Pain points',
     persona_m_role:'Resident · 38 years old',
@@ -1193,6 +1298,34 @@ if (glow) {
       }, { once: true });
     }, 420); // matches bookTurnOut duration
   }, 4500);
+})();
+
+// ── User Flow Carousel ──
+(function() {
+  let flowIdx = 0;
+  const total = 3;
+  const track = document.getElementById('flowTrack');
+  const dots  = document.querySelectorAll('.flow-dot');
+
+  function flowUpdate() {
+    if (!track) return;
+    track.style.transform = `translateX(-${flowIdx * 100}%)`;
+    dots.forEach((d, i) => {
+      d.style.background = i === flowIdx ? '#00E38C' : 'rgba(0,227,140,.30)';
+      d.style.transform  = i === flowIdx ? 'scale(1.4)' : 'scale(1)';
+    });
+  }
+
+  window.flowMove = function(dir) {
+    flowIdx = (flowIdx + dir + total) % total;
+    flowUpdate();
+  };
+  window.flowGoTo = function(i) {
+    flowIdx = i;
+    flowUpdate();
+  };
+
+  flowUpdate();
 })();
 </script>
 </body>
