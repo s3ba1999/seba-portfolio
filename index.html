@@ -631,44 +631,19 @@
 
       <!-- Card Pipebolagro -->
       <article data-reveal="right" class="project-card glass-card rounded-3xl overflow-hidden group cursor-pointer">
-        <div class="relative h-60 overflow-hidden" style="background:linear-gradient(135deg,#12100a 0%,#1c1a0e 50%,#201d0b 100%)">
-          <!-- Grain texture via SVG noise -->
-          <svg class="absolute inset-0 w-full h-full opacity-[.06] pointer-events-none" xmlns="http://www.w3.org/2000/svg"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#grain)"/></svg>
-          <!-- CSS browser mockup -->
-          <div class="absolute inset-0 flex flex-col group-hover:scale-105 transition-transform duration-700 origin-center" style="padding:14px 12px 0">
-            <!-- browser chrome -->
-            <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-t-lg flex-shrink-0" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-bottom:none">
-              <div class="flex gap-1"><div class="w-2 h-2 rounded-full" style="background:#ff5f57"></div><div class="w-2 h-2 rounded-full" style="background:#febc2e"></div><div class="w-2 h-2 rounded-full" style="background:#28c840"></div></div>
-              <div class="flex-1 mx-2 px-2 py-0.5 rounded text-[8px] text-white/25" style="background:rgba(255,255,255,.05)">pipebolagro.com</div>
-            </div>
-            <!-- page content -->
-            <div class="flex-1 overflow-hidden rounded-b-lg" style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-top:none; padding:10px">
-              <!-- hero strip -->
-              <div class="rounded-md mb-2 flex items-center px-3" style="height:52px; background:linear-gradient(90deg,rgba(196,155,48,.18) 0%,rgba(196,155,48,.06) 100%); border:1px solid rgba(196,155,48,.18)">
-                <div>
-                  <div class="h-2 w-20 rounded mb-1.5" style="background:rgba(196,155,48,.7)"></div>
-                  <div class="h-1.5 w-28 rounded" style="background:rgba(255,255,255,.18)"></div>
-                </div>
-                <div class="ml-auto h-6 w-14 rounded" style="background:rgba(196,155,48,.55)"></div>
-              </div>
-              <!-- stat row -->
-              <div class="grid grid-cols-3 gap-1.5 mb-2">
-                <div class="rounded p-1.5" style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07)"><div class="h-1.5 w-8 rounded mb-1" style="background:rgba(196,155,48,.5)"></div><div class="h-1 w-6 rounded" style="background:rgba(255,255,255,.15)"></div></div>
-                <div class="rounded p-1.5" style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07)"><div class="h-1.5 w-8 rounded mb-1" style="background:rgba(196,155,48,.5)"></div><div class="h-1 w-6 rounded" style="background:rgba(255,255,255,.15)"></div></div>
-                <div class="rounded p-1.5" style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07)"><div class="h-1.5 w-8 rounded mb-1" style="background:rgba(196,155,48,.5)"></div><div class="h-1 w-6 rounded" style="background:rgba(255,255,255,.15)"></div></div>
-              </div>
-              <!-- content rows -->
-              <div class="space-y-1.5">
-                <div class="h-2 rounded w-full" style="background:rgba(255,255,255,.07)"></div>
-                <div class="h-2 rounded w-4/5" style="background:rgba(255,255,255,.05)"></div>
-                <div class="h-2 rounded w-3/5" style="background:rgba(255,255,255,.04)"></div>
-              </div>
-            </div>
-          </div>
-          <!-- glow -->
-          <div class="absolute -bottom-8 -right-8 w-36 h-36 rounded-full blur-3xl pointer-events-none group-hover:opacity-80 transition-opacity" style="background:rgba(196,155,48,.12)"></div>
-          <div class="absolute top-4 left-4 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 border border-white/12 z-10">
-            <span class="text-xs font-semibold text-white/80" data-i18n="type_b2b">B2B Platform</span>
+        <div class="relative h-60 overflow-hidden flex items-center justify-center"
+          style="background:radial-gradient(ellipse at 60% 50%, #0d2a14 0%, #061209 55%, #030805 100%)">
+          <!-- glow orbs -->
+          <div class="absolute w-48 h-48 rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(2,120,69,.28) 0%,transparent 70%); top:-20px; right:-10px; filter:blur(18px)"></div>
+          <div class="absolute w-32 h-32 rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(71,143,38,.18) 0%,transparent 70%); bottom:-10px; left:10px; filter:blur(14px)"></div>
+          <!-- hero image -->
+          <img src="img/pipede.png" alt="PipebolAgro — plataforma web de exportación de granos"
+            class="relative z-10 h-56 w-auto object-contain group-hover:scale-105 transition-transform duration-700"
+            style="filter:drop-shadow(0 10px 28px rgba(0,0,0,.55)) drop-shadow(0 0 24px rgba(2,120,69,.32));"/>
+          <!-- bottom fade -->
+          <div class="absolute inset-x-0 bottom-0 h-16 pointer-events-none" style="background:linear-gradient(to top,rgba(3,8,5,.88),transparent)"></div>
+          <div class="absolute top-4 left-4 z-20 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 border border-white/14">
+            <span class="text-xs font-semibold text-white/90" data-i18n="type_b2b">B2B Platform</span>
           </div>
         </div>
         <div class="p-7 sm:p-8">
