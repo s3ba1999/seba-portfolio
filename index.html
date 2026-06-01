@@ -814,8 +814,8 @@
         <span class="text-[#0F2C6E] dark:text-white" data-i18n="about_title_1">Diseño que piensa.</span><br/>
         <span class="text-grad" data-i18n="about_title_2">Código que funciona.</span>
       </h2>
-      <p data-reveal="left" data-delay="2" class="text-[#0F2C6E]/78 dark:text-[#F0F4FF]/70 leading-relaxed mb-5" data-i18n="about_p1">Soy Sebastian Delgado, Product Designer e Ingeniero de Sistemas boliviano con visión global. Me especializo en crear sistemas digitales que conectan la estrategia de negocio con la experiencia del usuario, trabajando con clientes de cualquier parte del mundo.</p>
-      <p data-reveal="left" data-delay="3" class="text-[#0F2C6E]/85 dark:text-white leading-relaxed mb-10" data-i18n="about_p2">Mi enfoque combina investigación de usuarios, arquitectura de información y desarrollo frontend para entregar productos que no solo se ven bien, sino que convierten y escalan.</p>
+      <p data-reveal="left" data-delay="2" class="text-[#0F2C6E]/78 dark:text-[#F0F4FF]/70 leading-relaxed mb-5" data-i18n="about_p1">Soy Sebastian Delgado, Product Designer boliviano con formación en Ingeniería de Sistemas. Mi foco está en diseñar experiencias claras y funcionales — y mi background técnico me permite colaborar con equipos de desarrollo con mayor precisión, entendiendo las restricciones reales sin sacrificar la visión de diseño.</p>
+      <p data-reveal="left" data-delay="3" class="text-[#0F2C6E]/85 dark:text-white leading-relaxed mb-10" data-i18n="about_p2">Combino investigación de usuarios, arquitectura de información y criterio visual para entregar productos que conectan con las personas y generan resultados medibles para el negocio.</p>
 
       <div data-reveal="left" data-delay="4" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="bg-[#0F2C6E]/5 dark:bg-white/5 border border-[#0F2C6E]/10 dark:border-white/8 rounded-2xl p-5 hover:border-[#25C7D7]/40">
@@ -837,10 +837,29 @@
       </div>
     </div>
 
-    <div data-reveal="right" class="relative">
-      <div class="bg-gradient-to-br from-[#0F2C6E] to-[#061245] dark:from-[#0D1B3E] dark:to-[#07101E] rounded-3xl p-8 border border-white/8 shadow-2xl shadow-[#0F2C6E]/15">
-        <p class="text-white/50 text-xs font-bold tracking-widest uppercase mb-6" data-i18n="about_tools">Stack &amp; Herramientas</p>
-        <div class="flex flex-wrap gap-2.5">
+    <div data-reveal="right" class="relative flex flex-col gap-5">
+
+      <!-- Foto -->
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#0F2C6E]/25" style="height:400px;">
+        <img src="img/sebas.jpg" alt="Sebastian Delgado — Product Designer"
+          class="w-full h-full object-cover object-top"/>
+        <!-- gradient overlay bottom -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#07101E]/90 via-[#07101E]/10 to-transparent"></div>
+        <!-- rim light top -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0F2C6E]/20 to-transparent pointer-events-none"></div>
+        <!-- name badge -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+          <p class="text-white font-black text-lg leading-none mb-1">Sebastian Delgado</p>
+          <p class="text-[#25C7D7] text-sm font-medium" data-i18n="hero_role">Product Designer con background técnico</p>
+        </div>
+        <!-- border overlay -->
+        <div class="absolute inset-0 rounded-3xl border border-white/10 pointer-events-none"></div>
+      </div>
+
+      <!-- Tools card -->
+      <div class="bg-gradient-to-br from-[#0F2C6E] to-[#061245] dark:from-[#0D1B3E] dark:to-[#07101E] rounded-2xl p-6 border border-white/8 shadow-xl shadow-[#0F2C6E]/15">
+        <p class="text-white/50 text-xs font-bold tracking-widest uppercase mb-4" data-i18n="about_tools">Stack &amp; Herramientas</p>
+        <div class="flex flex-wrap gap-2">
           <span class="tool-pill">Figma</span>
           <span class="tool-pill">HTML5 / CSS3</span>
           <span class="tool-pill">Tailwind CSS</span>
@@ -852,16 +871,14 @@
           <span class="tool-pill">Notion</span>
           <span class="tool-pill">Miro</span>
           <span class="tool-pill">Jira</span>
-          <span class="tool-pill">TypeScript</span>
-          <span class="tool-pill">Conocimientos de IA</span>
-          <span class="tool-pill">Claude AI</span>
         </div>
-        <div class="mt-8 pt-6 border-t border-white/8">
-          <p class="text-white/90 text-sm leading-relaxed italic" data-i18n="about_quote">"El buen diseño no es solo cómo se ve, es cómo funciona y cómo hace sentir al usuario."</p>
-          <p class="text-[#25C7D7] text-xs font-semibold mt-3">— Sebastian Delgado</p>
+        <div class="mt-5 pt-4 border-t border-white/8">
+          <p class="text-white/85 text-sm leading-relaxed italic" data-i18n="about_quote">"El buen diseño no es solo cómo se ve, es cómo funciona y cómo hace sentir al usuario."</p>
+          <p class="text-[#25C7D7] text-xs font-semibold mt-2">— Sebastian Delgado</p>
         </div>
       </div>
-      <div class="absolute -inset-3 bg-gradient-to-br from-[#25C7D7]/6 to-[#0F2C6E]/6 rounded-3xl blur-xl -z-10"></div>
+
+      <div class="absolute -inset-3 bg-gradient-to-br from-[#25C7D7]/5 to-[#0F2C6E]/5 rounded-3xl blur-xl -z-10"></div>
     </div>
   </div>
 </section>
