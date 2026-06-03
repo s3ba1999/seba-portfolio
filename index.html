@@ -362,19 +362,9 @@
      HERO
 ══════════════════════════════════ -->
 <section id="hero" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden dot-grid">
-  <!-- Static photo fallback (always visible, reduced opacity) -->
-  <div class="hero-photo"></div>
-  <!-- Background video — tech & design world -->
-  <!-- Para activar: descarga cualquier video tech gratuito de pexels.com/video/3129671
-       y guárdalo como  img/hero-video.mp4  en esta misma carpeta -->
-  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-    <source src="img/hero-video.mp4" type="video/mp4"/>
-    <source src="https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_25fps.mp4" type="video/mp4"/>
-  </video>
-  <!-- Orbs -->
-  <div class="orb orb-cyan   w-[480px] h-[480px] opacity-[.18] dark:opacity-[.28] -top-24 -right-24" style="animation-delay:0s"></div>
-  <div class="orb orb-blue   w-[380px] h-[380px] opacity-[.13] dark:opacity-[.18] -bottom-16 -left-16" style="animation-delay:-4s"></div>
-  <div class="orb orb-purple w-[260px] h-[260px] opacity-[.09] dark:opacity-[.14] top-1/2 right-1/3"  style="animation-delay:-7s"></div>
+  <!-- 2 orbs — suficiente profundidad sin saturar -->
+  <div class="orb orb-cyan w-[500px] h-[500px] opacity-[.15] dark:opacity-[.22] -top-28 -right-20" style="animation-delay:0s"></div>
+  <div class="orb orb-blue w-[360px] h-[360px] opacity-[.10] dark:opacity-[.15] -bottom-20 -left-20" style="animation-delay:-4s"></div>
 
   <div class="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10">
 
@@ -525,43 +515,6 @@
 </section>
 
 
-<!-- ══════════════════════════════════
-     MARQUEE
-══════════════════════════════════ -->
-<div class="py-4 bg-[#0F2C6E] dark:bg-[#080F1E] border-y border-[#25C7D7]/20 overflow-hidden">
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <div class="flex items-center gap-6 flex-shrink-0 pr-6">
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Figma</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">React</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Tailwind CSS</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Next.js</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Adobe Suite</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Framer</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Webflow</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">TypeScript</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Git</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">UX Research</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Design Systems</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Miro</span><span class="text-[#25C7D7]">·</span>
-      </div>
-      <div class="flex items-center gap-6 flex-shrink-0 pr-6" aria-hidden="true">
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Figma</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">React</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Tailwind CSS</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Next.js</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Adobe Suite</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Framer</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Webflow</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">TypeScript</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Git</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">UX Research</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Design Systems</span><span class="text-[#25C7D7]">·</span>
-        <span class="text-white/55 text-sm font-medium whitespace-nowrap">Miro</span><span class="text-[#25C7D7]">·</span>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <!-- ══════════════════════════════════
@@ -803,7 +756,7 @@
         </div>
         <p class="text-[#25C7D7] text-xs font-bold tracking-widest mb-2">01</p>
         <h3 class="text-white font-bold text-lg mb-2" data-i18n="step1_title">Descubrir</h3>
-        <p class="text-white/85 text-sm leading-relaxed" data-i18n="step1_desc">Research de usuarios, análisis de competencia y definición del problema real detrás del pedido.</p>
+        <p class="text-white/85 text-sm leading-relaxed" data-i18n="step1_desc">Me gusta entender el problema antes de verlo. En Pipebolagro, el cliente tenía compradores internacionales reales pero sin web ni correo corporativo. El problema no era técnico, era de credibilidad. En Condaty, dos semanas leyendo el diseño anterior y hablando con residentes cambiaron todo el enfoque.</p>
       </div>
 
       <div data-reveal="up" data-delay="2" class="step-card bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#25C7D7]/45 hover:bg-white/8">
@@ -814,7 +767,7 @@
         </div>
         <p class="text-[#25C7D7] text-xs font-bold tracking-widest mb-2">02</p>
         <h3 class="text-white font-bold text-lg mb-2" data-i18n="step2_title">Diseñar</h3>
-        <p class="text-white/85 text-sm leading-relaxed" data-i18n="step2_desc">Wireframes, sistemas de diseño y prototipos de alta fidelidad validados con usuarios reales.</p>
+        <p class="text-white/85 text-sm leading-relaxed" data-i18n="step2_desc">Diseño para quien lo va a usar, no para quien lo va a ver. Eso cambia cada decisión: el tamaño de los botones, la velocidad de carga, lo que pasa cuando el guardia tiene guantes puestos. Wireframes primero, siempre.</p>
       </div>
 
       <div data-reveal="up" data-delay="3" class="step-card bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#25C7D7]/45 hover:bg-white/8">
@@ -825,7 +778,7 @@
         </div>
         <p class="text-[#25C7D7] text-xs font-bold tracking-widest mb-2">03</p>
         <h3 class="text-white font-bold text-lg mb-2" data-i18n="step3_title">Desarrollar</h3>
-        <p class="text-white/85 text-sm leading-relaxed" data-i18n="step3_desc">Implementación frontend pixel-perfect con código limpio, escalable y accesible.</p>
+        <p class="text-white/85 text-sm leading-relaxed" data-i18n="step3_desc">Mi formación en ingeniería hace que los devs y yo hablemos el mismo idioma. No entrego pantallas bonitas, entrego lógica que se puede construir: componentes documentados, tokens de diseño, especificaciones reales.</p>
       </div>
 
       <div data-reveal="up" data-delay="4" class="step-card bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#25C7D7]/45 hover:bg-white/8">
@@ -836,7 +789,7 @@
         </div>
         <p class="text-[#25C7D7] text-xs font-bold tracking-widest mb-2">04</p>
         <h3 class="text-white font-bold text-lg mb-2" data-i18n="step4_title">Iterar</h3>
-        <p class="text-white/85 text-sm leading-relaxed" data-i18n="step4_desc">Métricas, feedback y optimización continua para que el producto mejore con el tiempo.</p>
+        <p class="text-white/85 text-sm leading-relaxed" data-i18n="step4_desc">Los mejores proyectos son los que cambian después de salir. En Pipebolagro el cliente consiguió visibilidad internacional antes de terminar los ajustes finales. Eso no es el fin, es el comienzo.</p>
       </div>
     </div>
   </div>
@@ -1024,10 +977,10 @@ const T = {
     cta_case_study:'Ver Caso de Estudio',
     process_label:'Mi Proceso', process_title:'Cómo trabajo',
     process_subtitle:'Un proceso probado que convierte ideas difusas en productos digitales de impacto.',
-    step1_title:'Descubrir', step1_desc:'Research de usuarios, análisis de competencia y definición del problema real detrás del pedido.',
-    step2_title:'Diseñar',   step2_desc:'Wireframes, sistemas de diseño y prototipos de alta fidelidad validados con usuarios reales.',
-    step3_title:'Desarrollar', step3_desc:'Implementación frontend pixel-perfect con código limpio, escalable y accesible.',
-    step4_title:'Iterar',    step4_desc:'Métricas, feedback y optimización continua para que el producto mejore con el tiempo.',
+    step1_title:'Descubrir', step1_desc:'Me gusta entender el problema antes de verlo. En Pipebolagro, el cliente tenía compradores internacionales reales pero sin web ni correo corporativo. El problema no era técnico, era de credibilidad. En Condaty, dos semanas leyendo el diseño anterior y hablando con residentes cambiaron todo el enfoque.',
+    step2_title:'Diseñar',   step2_desc:'Diseño para quien lo va a usar, no para quien lo va a ver. Eso cambia cada decisión: el tamaño de los botones, la velocidad de carga, lo que pasa cuando el guardia tiene guantes puestos. Wireframes primero, siempre.',
+    step3_title:'Desarrollar', step3_desc:'Mi formación en ingeniería hace que los devs y yo hablemos el mismo idioma. No entrego pantallas bonitas, entrego lógica que se puede construir: componentes documentados, tokens de diseño, especificaciones reales.',
+    step4_title:'Iterar',    step4_desc:'Los mejores proyectos son los que cambian después de salir. En Pipebolagro el cliente consiguió visibilidad internacional antes de terminar los ajustes finales. Eso no es el fin, es el comienzo.',
     about_label:'Sobre Mí', about_title_1:'Diseño que piensa.', about_title_2:'Código que funciona.',
     about_p1:'Soy Sebastian Delgado, Product Designer boliviano con formación en Ingeniería de Sistemas. Mi foco está en diseñar experiencias claras y funcionales. Mi background técnico me permite colaborar con equipos de desarrollo con mayor precisión, entendiendo las restricciones reales sin sacrificar la visión de diseño.',
     about_p2:'Combino investigación de usuarios, arquitectura de información y criterio visual para entregar productos que conectan con las personas y generan resultados medibles para el negocio.',
@@ -1067,10 +1020,10 @@ const T = {
     cta_case_study:'View Case Study',
     process_label:'My Process', process_title:'How I work',
     process_subtitle:'A proven process that turns blurry ideas into high-impact digital products.',
-    step1_title:'Discover', step1_desc:'User research, competitive analysis and definition of the real problem behind the request.',
-    step2_title:'Design',   step2_desc:'Wireframes, design systems and high-fidelity prototypes validated with real users.',
-    step3_title:'Develop',  step3_desc:'Pixel-perfect frontend implementation with clean, scalable and accessible code.',
-    step4_title:'Iterate',  step4_desc:'Metrics, feedback and continuous optimization so the product improves over time.',
+    step1_title:'Discover', step1_desc:"I like to understand the problem before seeing it. In Pipebolagro, the client had real international buyers but no website or corporate email. The problem wasn't technical, it was about credibility. In Condaty, two weeks reading the previous design and talking to residents changed the entire approach.",
+    step2_title:'Design',   step2_desc:"I design for the person who will use it, not for the person who will look at it. That changes every decision: button sizes, load speed, what happens when the security guard is wearing gloves. Wireframes first, always.",
+    step3_title:'Develop',  step3_desc:"My engineering background means devs and I speak the same language. I don't deliver pretty screens, I deliver buildable logic: documented components, design tokens, real specifications.",
+    step4_title:'Iterate',  step4_desc:"The best projects are the ones that change after launch. In Pipebolagro the client gained international visibility before we finished the final adjustments. That's not the end, it's the beginning.",
     about_label:'About Me', about_title_1:'Design that thinks.', about_title_2:'Code that works.',
     about_p1:"I'm Sebastian Delgado, a Bolivian Product Designer with a background in Systems Engineering. My focus is on designing clear, functional experiences — and my technical background allows me to collaborate with development teams with greater precision, understanding real constraints without sacrificing the design vision.",
     about_p2:"I combine user research, information architecture, and visual judgment to deliver products that connect with people and generate measurable results for the business.",
