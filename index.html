@@ -952,7 +952,9 @@
           <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
-          <span class="truncate">jsdelgadovasquez99@gmail.com</span>
+          <!-- Texto corto en mobile, email completo en desktop -->
+          <span class="sm:hidden" data-i18n="contact_btn_mobile">Escribir mensaje</span>
+          <span class="hidden sm:inline truncate">jsdelgadovasquez99@gmail.com</span>
         </a>
       </div>
       <div class="flex items-center justify-center gap-8">
@@ -1015,9 +1017,10 @@ const T = {
     projects_subtitle:'Soluciones reales a problemas reales, diseño estratégico, experiencia de usuario y desarrollo web en acción.',
     type_saas:'SaaS Platform', type_b2b:'B2B Platform', type_gym:'Gym Website', tag_product:'Product Design', tag_web:'Web Dev', tag_landing:'Landing Page',
     placeholder_img:'Mockup próximamente',
-    condaty_desc:'Ecosistema SaaS todo-en-uno para la gestión integral de condominios y seguridad. Desde control de accesos hasta administración financiera, diseñado para escalar.',
-    pipebolagro_desc:'Plataforma web B2B de conversión enfocada en la exportación global de granos. Diseño orientado a la confianza, la claridad de oferta y la generación de leads de alto valor.',
-    knockout_desc:'Landing page cinematográfica para un gym de artes marciales. HTML5, CSS3 y Vanilla JS — efectos glitch, slideshow con crossfade, contadores animados y responsive completo.',
+    condaty_desc:'Los condominios gestionaban visitas en cuadernos físicos y pagos por WhatsApp. Diseñé un ecosistema que unificó residentes, guardias y administradores en una sola plataforma — desde control de accesos hasta administración financiera.',
+    pipebolagro_desc:'Los exportadores de granos bolivianos perdían clientes internacionales en el primer contacto digital: sitios sin estructura ni credibilidad. Diseñé una plataforma B2B que convierte ese primer encuentro en confianza y genera leads de alto valor.',
+    knockout_desc:'Un gym de artes marciales con 8 disciplinas y sin presencia digital coherente. La plataforma incluye páginas individuales para cada campeón del equipo con su trayectoria como peleador, y soporte en tres idiomas: español, portugués e inglés.',
+    contact_btn_mobile:'Escribir mensaje',
     cta_case_study:'Ver Caso de Estudio',
     process_label:'Mi Proceso', process_title:'Cómo trabajo',
     process_subtitle:'Un proceso probado que convierte ideas difusas en productos digitales de impacto.',
@@ -1057,9 +1060,10 @@ const T = {
     projects_subtitle:'Real solutions to real problems, strategic design, user experience and web development in action.',
     type_saas:'SaaS Platform', type_b2b:'B2B Platform', type_gym:'Gym Website', tag_product:'Product Design', tag_web:'Web Dev', tag_landing:'Landing Page',
     placeholder_img:'Mockup coming soon',
-    condaty_desc:'An all-in-one SaaS ecosystem for comprehensive condominium management and security. From access control to financial administration, built to scale.',
-    pipebolagro_desc:'A B2B conversion web platform focused on global grain exportation. Design driven by trust, offer clarity, and high-value lead generation.',
-    knockout_desc:'Cinematic landing page for a martial arts gym. HTML5, CSS3 and Vanilla JS — glitch effects, crossfade slideshow, animated counters, and fully responsive.',
+    condaty_desc:'Condominiums managed visitor logs in notebooks and payments over WhatsApp. I designed an ecosystem that unified residents, guards, and administrators in a single platform — from access control to financial management.',
+    pipebolagro_desc:'Bolivian grain exporters were losing international clients at the first digital touchpoint: disorganized sites with no credibility. I designed a B2B platform that turns that first encounter into trust and generates high-value leads.',
+    knockout_desc:'A martial arts gym with 8 disciplines and no coherent digital presence. The platform includes individual pages for each team champion showcasing their fighting career, and full support in three languages: Spanish, Portuguese, and English.',
+    contact_btn_mobile:'Send a message',
     cta_case_study:'View Case Study',
     process_label:'My Process', process_title:'How I work',
     process_subtitle:'A proven process that turns blurry ideas into high-impact digital products.',
