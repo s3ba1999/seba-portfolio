@@ -121,6 +121,47 @@
     .shot-placeholder { background:linear-gradient(135deg,#0d2015,#1a3a25); border-radius:1rem; display:flex; align-items:center; justify-content:center; overflow:hidden; }
     .shot-placeholder img { width:100%; height:100%; object-fit:cover; display:block; }
 
+    /* Peek preview: muestra solo la parte superior con fade y botón de expandir */
+    .peek-wrap {
+      position:relative; overflow:hidden; border-radius:1rem;
+      cursor:zoom-in;
+    }
+    .peek-wrap img {
+      width:100%; display:block;
+      object-fit:cover; object-position:top;
+      transition: transform .4s ease;
+    }
+    .peek-wrap:hover img { transform: scale(1.02); }
+    /* Fade inferior */
+    .peek-fade {
+      position:absolute; bottom:0; left:0; right:0; height:100px;
+      background: linear-gradient(to top, rgba(7,28,14,.95) 0%, transparent 100%);
+      pointer-events:none;
+    }
+    /* Botón expand */
+    .peek-expand {
+      position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+      display:flex; align-items:center; gap:6px;
+      background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18);
+      backdrop-filter:blur(8px); border-radius:999px;
+      padding:6px 14px; font-size:11px; font-weight:600;
+      color:rgba(255,255,255,.85); white-space:nowrap;
+      transition: background .2s, border-color .2s;
+      pointer-events:none;
+    }
+    .peek-wrap:hover .peek-expand {
+      background:rgba(74,222,128,.18); border-color:rgba(74,222,128,.45);
+      color:#4ade80;
+    }
+    /* Label de página */
+    .peek-label {
+      position:absolute; top:12px; left:12px;
+      background:rgba(0,0,0,.55); backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.12); border-radius:999px;
+      padding:3px 10px; font-size:10px; font-weight:700;
+      color:rgba(255,255,255,.80); letter-spacing:.04em; text-transform:uppercase;
+    }
+
     /* Lightbox */
     #lb-overlay { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.92); backdrop-filter:blur(10px); overflow:hidden; }
     #lb-overlay.active { display:block; }
@@ -611,62 +652,66 @@
       <p data-reveal="up" data-delay="2" class="text-sm text-[#1D1D1D]/80 dark:text-white/60 max-w-xl mx-auto" data-i18n="result_desc">Plataforma 100% responsiva, bilingüe y orientada a la conversión B2B en el sector de exportación de granos.</p>
     </div>
 
-    <!-- Hero shot — full width -->
-    <div data-reveal="up" data-delay="1" class="rounded-2xl overflow-hidden mb-5 shadow-2xl shadow-black/20">
-      <div class="shot-placeholder" style="min-height:320px;">
-        <img src="img/pipebolagro-hero.png" alt="PipebolAgro SRL — Home page"
-          class="w-full h-auto block lb-trigger" loading="lazy" data-lb="img/pipebolagro-hero.png"
-          onerror="this.parentElement.querySelector('.shot-label').style.display='flex'; this.style.display='none'"/>
-        <div class="shot-label" style="display:none; flex-direction:column; align-items:center; gap:8px; padding:60px 20px;">
-          <svg class="w-8 h-8 text-[#4ade80]/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          <p class="text-[10px] text-white/30 font-medium">pipebolagro-hero.png</p>
+    <!-- Home — full width peek -->
+    <div data-reveal="up" data-delay="1" class="mb-5 shadow-2xl shadow-black/25">
+      <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipeindex.png" style="height:340px;">
+        <img src="img/Pipebol/pipeindex.png" alt="Pipebolagro — Home" style="height:auto;"/>
+        <div class="peek-fade"></div>
+        <span class="peek-label" data-i18n="page_home">Home</span>
+        <div class="peek-expand">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+          <span data-i18n="peek_expand">Ver página completa</span>
         </div>
       </div>
     </div>
 
-    <!-- 2-col grid -->
+    <!-- Productos + Servicios -->
     <div class="grid sm:grid-cols-2 gap-5 mb-5">
-      <div data-reveal="left" class="rounded-2xl overflow-hidden shadow-xl shadow-black/15">
-        <div class="shot-placeholder" style="min-height:220px;">
-          <img src="img/pipe-products.png" alt="Página Productos"
-            class="w-full h-auto block lb-trigger" loading="lazy" data-lb="img/pipe-products.png"
-            onerror="this.parentElement.querySelector('.shot-label').style.display='flex'; this.style.display='none'"/>
-          <div class="shot-label" style="display:none; flex-direction:column; align-items:center; gap:6px; padding:50px 20px;">
-            <p class="text-[10px] text-white/30">pipe-products.png</p>
+      <div data-reveal="left">
+        <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipeproduct.png" style="height:260px;">
+          <img src="img/Pipebol/pipeproduct.png" alt="Pipebolagro — Productos" style="height:auto;"/>
+          <div class="peek-fade"></div>
+          <span class="peek-label" data-i18n="page_products">Productos</span>
+          <div class="peek-expand">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            <span data-i18n="peek_expand">Ver página completa</span>
           </div>
         </div>
       </div>
-      <div data-reveal="right" class="rounded-2xl overflow-hidden shadow-xl shadow-black/15">
-        <div class="shot-placeholder" style="min-height:220px;">
-          <img src="img/pipe-services.png" alt="Página Servicios"
-            class="w-full h-auto block lb-trigger" loading="lazy" data-lb="img/pipe-services.png"
-            onerror="this.parentElement.querySelector('.shot-label').style.display='flex'; this.style.display='none'"/>
-          <div class="shot-label" style="display:none; flex-direction:column; align-items:center; gap:6px; padding:50px 20px;">
-            <p class="text-[10px] text-white/30">pipe-services.png</p>
+      <div data-reveal="right">
+        <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipeservicios.png" style="height:260px;">
+          <img src="img/Pipebol/pipeservicios.png" alt="Pipebolagro — Servicios" style="height:auto;"/>
+          <div class="peek-fade"></div>
+          <span class="peek-label" data-i18n="page_services">Servicios</span>
+          <div class="peek-expand">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            <span data-i18n="peek_expand">Ver página completa</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 2-col grid row 2 -->
+    <!-- About + Contacto -->
     <div class="grid sm:grid-cols-2 gap-5">
-      <div data-reveal="left" data-delay="1" class="rounded-2xl overflow-hidden shadow-xl shadow-black/15">
-        <div class="shot-placeholder" style="min-height:220px;">
-          <img src="img/pipe-about.png" alt="Página Acerca de"
-            class="w-full h-auto block lb-trigger" loading="lazy" data-lb="img/pipe-about.png"
-            onerror="this.parentElement.querySelector('.shot-label').style.display='flex'; this.style.display='none'"/>
-          <div class="shot-label" style="display:none; flex-direction:column; align-items:center; gap:6px; padding:50px 20px;">
-            <p class="text-[10px] text-white/30">pipe-about.png</p>
+      <div data-reveal="left" data-delay="1">
+        <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipeabout.png" style="height:260px;">
+          <img src="img/Pipebol/pipeabout.png" alt="Pipebolagro — About" style="height:auto;"/>
+          <div class="peek-fade"></div>
+          <span class="peek-label" data-i18n="page_about">Nosotros</span>
+          <div class="peek-expand">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            <span data-i18n="peek_expand">Ver página completa</span>
           </div>
         </div>
       </div>
-      <div data-reveal="right" data-delay="1" class="rounded-2xl overflow-hidden shadow-xl shadow-black/15">
-        <div class="shot-placeholder" style="min-height:220px;">
-          <img src="img/pipe-contact.png" alt="Página Contacto"
-            class="w-full h-auto block lb-trigger" loading="lazy" data-lb="img/pipe-contact.png"
-            onerror="this.parentElement.querySelector('.shot-label').style.display='flex'; this.style.display='none'"/>
-          <div class="shot-label" style="display:none; flex-direction:column; align-items:center; gap:6px; padding:50px 20px;">
-            <p class="text-[10px] text-white/30">pipe-contact.png</p>
+      <div data-reveal="right" data-delay="1">
+        <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipecontact.png" style="height:260px;">
+          <img src="img/Pipebol/pipecontact.png" alt="Pipebolagro — Contacto" style="height:auto;"/>
+          <div class="peek-fade"></div>
+          <span class="peek-label" data-i18n="page_contact">Contacto</span>
+          <div class="peek-expand">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            <span data-i18n="peek_expand">Ver página completa</span>
           </div>
         </div>
       </div>
@@ -925,6 +970,8 @@ const T = {
     impact_kpi3:'SEO', impact_kpi3_desc:'Posicionamiento en buscadores con catálogo de granos visible en mercados de Japón, China, México y EE.UU.',
     impact_quote:'La nueva imagen de Pipebol Agro permitió al cliente presentarse con confianza ante compradores internacionales, cerrando acuerdos que antes eran difíciles de concretar sin una presencia digital profesional.',
     impact_quote_attr:'— Impacto del proyecto · Pipebol Agro',
+    page_home:'Home', page_products:'Productos', page_services:'Servicios', page_about:'Nosotros', page_contact:'Contacto',
+    peek_expand:'Ver página completa',
     cs_process_label:'Mi proceso en Pipebolagro', cs_process_title:'Cómo trabajé este proyecto',
     cs_process_subtitle:'No era solo hacer una web. Era construir una empresa desde su identidad digital hasta su presencia internacional.',
     cs_step1_title:'Entender el problema',
@@ -997,6 +1044,8 @@ const T = {
     impact_kpi3:'SEO', impact_kpi3_desc:'Search engine positioning with grain catalog visible in markets like Japan, China, Mexico, and the USA.',
     impact_quote:'The new Pipebol Agro image allowed the client to present themselves confidently to international buyers, closing deals that were previously difficult to reach without a professional digital presence.',
     impact_quote_attr:'— Project Impact · Pipebol Agro',
+    page_home:'Home', page_products:'Products', page_services:'Services', page_about:'About', page_contact:'Contact',
+    peek_expand:'View full page',
     cs_process_label:'My process on Pipebolagro', cs_process_title:'How I worked this project',
     cs_process_subtitle:"It wasn't just about building a website. It was about building a company from its digital identity to its international presence.",
     cs_step1_title:'Understanding the problem',
