@@ -114,8 +114,8 @@
     .color-swatch { width:72px; height:72px; border-radius:1rem; flex-shrink:0; box-shadow:0 4px 16px rgba(0,0,0,.18); }
 
     /* Competitor card accent line */
-    .comp-card::before { content:''; display:block; width:3px; height:100%; position:absolute; left:0; top:0; border-radius:999px 0 0 999px; background:linear-gradient(to bottom,#027845,#478F26); }
-    .comp-card { position:relative; padding-left:1.25rem; }
+    .comp-card::before { content:''; display:block; width:3px; height:100%; position:absolute; left:0; top:0; background:linear-gradient(to bottom,#027845,#478F26); }
+    .comp-card { position:relative; padding-left:1.25rem; overflow:hidden; }
 
     /* Screenshot placeholder */
     .shot-placeholder { background:linear-gradient(135deg,#0d2015,#1a3a25); border-radius:1rem; display:flex; align-items:center; justify-content:center; overflow:hidden; }
