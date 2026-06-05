@@ -310,6 +310,7 @@
         </div>
         <p class="text-[9px] font-bold tracking-widest text-[#007a4d] dark:text-[#00E38C] uppercase mb-1.5" data-i18n="drr_result_label">Resultado</p>
         <h3 class="text-sm font-black text-[#0F2C6E] dark:text-white mb-2" data-i18n="drr_result_title">Ecosistema lanzado</h3>
+        <p class="text-[10px] text-[#1D1D1D]/45 dark:text-white/35 leading-relaxed mb-2 italic" data-i18n="drr_result_method">Medimos el impacto comparando los procesos manuales del primer mes con los datos de uso tras 3 meses en producción.</p>
         <p class="text-xs text-[#1D1D1D]/70 dark:text-white/70 leading-relaxed" data-i18n="drr_result_desc">Plataforma en producción con +390 usuarios activos, reducción del 30% en pasos operativos y mejora técnica del 40%.</p>
       </div>
 
@@ -490,6 +491,59 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     WIREFRAMES
+══════════════════════════════ -->
+<section class="py-16 px-5 sm:px-8 relative overflow-hidden">
+  <div class="orb w-[280px] h-[280px] bg-[#00E38C]/5 -left-20 top-0"></div>
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-10">
+      <div data-reveal="up" class="flex items-center justify-center gap-3 mb-3">
+        <div class="h-px w-8 bg-[#00E38C]"></div>
+        <span class="text-xs font-bold tracking-widest text-[#007a4d] dark:text-[#00E38C] uppercase" data-i18n="wf_label">Wireframes</span>
+        <div class="h-px w-8 bg-[#00E38C]"></div>
+      </div>
+      <h2 data-reveal="up" data-delay="1" class="text-3xl md:text-4xl font-black text-[#0F2C6E] dark:text-white" data-i18n="wf_title">Del papel a la pantalla</h2>
+      <p data-reveal="up" data-delay="2" class="text-sm text-[#1D1D1D]/55 dark:text-white/45 mt-3 max-w-xl mx-auto" data-i18n="wf_desc">Antes de abrir Figma, cuaderno. Cada flujo se pensó a mano para tomar decisiones de arquitectura cuando todavía era barato equivocarse.</p>
+    </div>
+
+    <!-- Carrusel wireframes -->
+    <div data-reveal="up" data-delay="3" class="relative">
+      <div class="overflow-hidden rounded-2xl shadow-2xl shadow-black/20 bg-[#f5f0e8] dark:bg-[#1a1a1a]">
+        <div id="wfTrack" class="flex transition-transform duration-500 ease-in-out">
+          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-01.jpeg" alt="Wireframe panel admin - deudas" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-01.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-02.jpeg" alt="Wireframe detalle deuda" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-02.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-03.jpeg" alt="Wireframe pagos móvil - todos" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-03.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-04.jpeg" alt="Wireframe widget pagos" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-04.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-05.jpeg" alt="Wireframe deuda compartida" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-05.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-06.jpeg" alt="Wireframe flujo 6" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-06.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-07.jpeg" alt="Wireframe flujo 7" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-07.jpeg"/></div>
+        </div>
+      </div>
+
+      <button onclick="wfMove(-1)" aria-label="Anterior"
+        class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+        style="background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px);">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button onclick="wfMove(1)" aria-label="Siguiente"
+        class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+        style="background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px);">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- Caption + contador -->
+    <div class="flex items-center justify-between mt-4 px-1">
+      <p id="wfCaption" class="text-sm text-[#1D1D1D]/55 dark:text-white/45 transition-opacity duration-300"></p>
+      <span id="wfCounter" class="text-xs font-bold text-[#00E38C]">1 / 7</span>
+    </div>
+
   </div>
 </section>
 
@@ -1192,7 +1246,9 @@ const T = {
     drr_role_label:'Mi Rol', drr_role_title:'Product Designer',
     drr_role_desc:'UX Research, diseño de interfaces, design system, branding, mascota, editorial y App Store assets. End-to-end.',
     drr_result_label:'Resultado', drr_result_title:'Ecosistema lanzado',
+    drr_result_method:'Medimos el impacto comparando los procesos manuales del primer mes con los datos de uso tras 3 meses en producción.',
     drr_result_desc:'Plataforma en producción con +390 usuarios activos, reducción del 30% en pasos operativos y mejora técnica del 40%.',
+    wf_label:'Wireframes', wf_title:'Del papel a la pantalla', wf_desc:'Antes de abrir Figma, cuaderno. Cada flujo se pensó a mano para tomar decisiones de arquitectura cuando todavía era barato equivocarse.',
     flow_label:'User Flows', flow_title:'¿Cómo navega cada rol?',
     personas_label:'User Personas', personas_title:'¿Para quién diseñamos?',
     p_needs:'Necesidades', p_pain:'Frustraciones',
@@ -1278,7 +1334,9 @@ const T = {
     drr_role_label:'My Role', drr_role_title:'Product Designer',
     drr_role_desc:'UX Research, interface design, design system, branding, mascot, editorial, and App Store assets. End-to-end.',
     drr_result_label:'Result', drr_result_title:'Ecosystem launched',
+    drr_result_method:'We measured impact by comparing manual processes from the first month against usage data after 3 months in production.',
     drr_result_desc:'Platform in production with 390+ active users, 30% reduction in operational steps, and 40% technical performance improvement.',
+    wf_label:'Wireframes', wf_title:'From paper to screen', wf_desc:'Before opening Figma, sketchbook. Every flow was thought through by hand to make architecture decisions while mistakes were still cheap.',
     flow_label:'User Flows', flow_title:'How does each role navigate?',
     personas_label:'User Personas', personas_title:'Who did we design for?',
     p_needs:'Needs', p_pain:'Pain points',
@@ -1584,6 +1642,57 @@ if (glow) {
   };
 
   flowUpdate();
+})();
+
+// ── Wireframes carousel ──────────────────────────────────────────────
+(() => {
+  let wfIdx = 0;
+  const wfTotal = 7;
+  const wfTrack   = document.getElementById('wfTrack');
+  const wfCounter = document.getElementById('wfCounter');
+  const wfCaption = document.getElementById('wfCaption');
+
+  const wfCaptions = {
+    es: [
+      'Panel admin — listado de deudas, condonaciones y plan de pagos.',
+      'Detalle de deuda individual y flujo de condonación.',
+      'Vista móvil — todos los casos de deudas, expensas y reservas.',
+      'Widget superior de pagos — selección de deudas y total a pagar.',
+      'Deuda compartida entre unidades — cobrado y por cobrar.',
+      'Flujo de registro y motivo de urgencia.',
+      'Flujo adicional de gestión financiera.'
+    ],
+    en: [
+      'Admin panel — debt list, write-offs and payment plan.',
+      'Individual debt detail and write-off flow.',
+      'Mobile view — all debt cases, fees and reservations.',
+      'Top payments widget — debt selection and total due.',
+      'Shared debt between units — collected and pending.',
+      'Registration and urgency reason flow.',
+      'Additional financial management flow.'
+    ]
+  };
+
+  function wfUpdate() {
+    if (!wfTrack) return;
+    wfTrack.style.transform = `translateX(-${wfIdx * 100}%)`;
+    if (wfCounter) wfCounter.textContent = `${wfIdx + 1} / ${wfTotal}`;
+    if (wfCaption) {
+      const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+      wfCaption.style.opacity = '0';
+      setTimeout(() => {
+        wfCaption.textContent = wfCaptions[lang][wfIdx];
+        wfCaption.style.opacity = '1';
+      }, 150);
+    }
+  }
+
+  window.wfMove = function(dir) {
+    wfIdx = (wfIdx + dir + wfTotal) % wfTotal;
+    wfUpdate();
+  };
+
+  wfUpdate();
 })();
 </script>
 </body>
