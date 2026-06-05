@@ -117,7 +117,7 @@
     .dash-bar    { background:linear-gradient(to top,#007a4d,#00E38C); border-radius:3px 3px 0 0; }
 
     /* Phone frame — always dark */
-    .phone-frame { border:2px solid rgba(255,255,255,.16); border-radius:2.5rem; background:#0d160d; box-shadow:0 28px 70px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.05); position:relative; overflow:hidden; }
+    .phone-frame { border:2px solid rgba(255,255,255,.16); border-radius:1.25rem; background:#0d160d; box-shadow:0 28px 70px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.05); position:relative; overflow:hidden; }
     .phone-notch { position:absolute; top:0; left:50%; transform:translateX(-50%); width:72px; height:20px; background:#0d160d; border-radius:0 0 1rem 1rem; z-index:10; }
 
     /* Condy robot CSS art */
@@ -541,8 +541,11 @@
       </button>
     </div>
 
+    <!-- Caption dinámico -->
+    <p id="flowCaption" class="text-center text-sm text-[#1D1D1D]/60 dark:text-white/50 mt-5 px-2 transition-opacity duration-300"></p>
+
     <!-- Dots + labels -->
-    <div class="flex items-center justify-center gap-6 mt-5">
+    <div class="flex items-center justify-center gap-6 mt-3">
       <button onclick="flowGoTo(0)" class="flow-dot-btn flex flex-col items-center gap-1.5 group">
         <span class="flow-dot w-2 h-2 rounded-full transition-all duration-300" style="background:rgba(0,227,140,.35)"></span>
         <span class="text-[11px] font-semibold text-[#1D1D1D]/50 dark:text-white/40 group-hover:text-[#00E38C] transition-colors" data-i18n="role_residents">Residentes</span>
@@ -670,7 +673,7 @@
       <!-- Guardias -->
       <div data-reveal="left" class="flex flex-col items-center gap-4">
         <span class="condo-badge text-xs px-3 py-1.5 rounded-full font-bold" data-i18n="role_guards">Guardias</span>
-        <div style="width:200px; height:400px; border-radius:2rem; overflow:hidden; border:1px solid rgba(255,255,255,.18); box-shadow:0 24px 60px rgba(0,0,0,.50);">
+        <div style="width:200px; height:400px; border-radius:0.75rem; overflow:hidden; border:1px solid rgba(255,255,255,.18); box-shadow:0 24px 60px rgba(0,0,0,.50);">
           <img src="img/guardiadash.png" alt="App Guardia Condaty"
             class="w-full h-full object-cover object-top block lb-trigger" loading="lazy" data-lb="img/guardiadash.png"/>
         </div>
@@ -680,7 +683,7 @@
       <!-- Residentes -->
       <div data-reveal="right" class="flex flex-col items-center gap-4">
         <span class="condo-badge text-xs px-3 py-1.5 rounded-full font-bold" data-i18n="role_residents">Residentes</span>
-        <div style="width:200px; height:400px; border-radius:2rem; overflow:hidden; border:1px solid rgba(255,255,255,.18); box-shadow:0 24px 60px rgba(0,0,0,.50);">
+        <div style="width:200px; height:400px; border-radius:0.75rem; overflow:hidden; border:1px solid rgba(255,255,255,.18); box-shadow:0 24px 60px rgba(0,0,0,.50);">
           <img src="img/residendash.png" alt="App Residente Condaty"
             class="w-full h-full object-cover object-top block lb-trigger" loading="lazy" data-lb="img/residendash.png"/>
         </div>
@@ -1537,8 +1540,22 @@ if (glow) {
 (function() {
   let flowIdx = 0;
   const total = 3;
-  const track = document.getElementById('flowTrack');
-  const dots  = document.querySelectorAll('.flow-dot');
+  const track   = document.getElementById('flowTrack');
+  const dots    = document.querySelectorAll('.flow-dot');
+  const caption = document.getElementById('flowCaption');
+
+  const flowCaptions = {
+    es: [
+      'El residente genera un QR de invitación desde la app para que su visita pueda ingresar al condominio mostrándoselo al guardia.',
+      'El guardia notifica al residente sobre la llegada de un pedido (delivery) en tiempo real desde su dispositivo.',
+      'El administrador genera y envía una expensa a los residentes del condominio desde el panel de gestión.'
+    ],
+    en: [
+      'The resident generates a QR invitation from the app so their guest can enter the building by showing it to the guard.',
+      'The guard notifies the resident about an incoming delivery in real time from their device.',
+      'The administrator generates and sends a fee notice to condo residents from the management panel.'
+    ]
+  };
 
   function flowUpdate() {
     if (!track) return;
@@ -1547,6 +1564,14 @@ if (glow) {
       d.style.background = i === flowIdx ? '#00E38C' : 'rgba(0,227,140,.30)';
       d.style.transform  = i === flowIdx ? 'scale(1.4)' : 'scale(1)';
     });
+    if (caption) {
+      const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+      caption.style.opacity = '0';
+      setTimeout(() => {
+        caption.textContent = flowCaptions[lang][flowIdx];
+        caption.style.opacity = '1';
+      }, 150);
+    }
   }
 
   window.flowMove = function(dir) {
