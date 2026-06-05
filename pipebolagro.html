@@ -665,117 +665,111 @@
         <p class="text-[10px] font-bold tracking-widest text-[#027845] dark:text-[#4ade80] uppercase" data-i18n="wf_label">Wireframes</p>
       </div>
       <h2 data-reveal="up" data-delay="1" class="font-spartan text-2xl sm:text-3xl font-black text-[#203239] dark:text-white mb-2" data-i18n="wf_title">Proceso de diseño</h2>
-      <p data-reveal="up" data-delay="2" class="text-sm text-[#1D1D1D]/70 dark:text-white/55 max-w-md mx-auto" data-i18n="wf_desc">Estructura y arquitectura antes del visual. Cada página en versión escritorio y móvil.</p>
+      <p data-reveal="up" data-delay="2" class="text-sm text-[#1D1D1D]/70 dark:text-white/55 max-w-md mx-auto" data-i18n="wf_desc">Estructura y arquitectura antes del visual. Las 5 páginas en versión escritorio y móvil.</p>
     </div>
 
-    <!-- Tabs de páginas -->
+    <!-- 2 tabs: PC / Móvil -->
     <div data-reveal="up" data-delay="3">
-      <!-- Tab nav -->
-      <div class="flex flex-wrap gap-2 justify-center mb-6" id="wf-tabs" role="tablist">
-        <button onclick="setWfTab('inicio')"   id="tab-inicio"    class="wf-tab active-tab"   data-i18n="wf_tab_inicio">Inicio</button>
-        <button onclick="setWfTab('servicio')" id="tab-servicio"  class="wf-tab"              data-i18n="wf_tab_servicio">Servicios</button>
-        <button onclick="setWfTab('producto')" id="tab-producto"  class="wf-tab"              data-i18n="wf_tab_producto">Producto</button>
-        <button onclick="setWfTab('about')"    id="tab-about"     class="wf-tab"              data-i18n="wf_tab_about">Nosotros</button>
-        <button onclick="setWfTab('contacto')" id="tab-contacto"  class="wf-tab"              data-i18n="wf_tab_contacto">Contacto</button>
+      <div class="flex justify-center gap-3 mb-7" role="tablist">
+        <button onclick="setWfTab('pc')" id="tab-pc"
+          class="wf-tab active-tab flex items-center gap-2" data-i18n="wf_tab_pc">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
+          Escritorio
+        </button>
+        <button onclick="setWfTab('pm')" id="tab-pm"
+          class="wf-tab flex items-center gap-2" data-i18n="wf_tab_pm">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          Móvil
+        </button>
       </div>
 
-      <!-- Panels: PC + PM side by side -->
-      <div id="wf-panel-inicio"   class="wf-panel grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_desktop">Escritorio</p>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/iniciopc.png" style="height:220px;">
+      <!-- PANEL PC — mismo layout que hi-fi: 1 full + 2+2 -->
+      <div id="wf-panel-pc" class="wf-panel">
+        <!-- Inicio full width -->
+        <div class="mb-5 shadow-xl shadow-black/15">
+          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/iniciopc.png" style="height:300px;">
             <img src="img/Pipebol/iniciopc.png" alt="Wireframe Inicio — Escritorio" style="height:auto;"/>
             <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_inicio">Inicio</span>
             <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
           </div>
         </div>
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_mobile">Móvil</p>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/iniciopm.png" style="height:220px;">
-            <img src="img/Pipebol/iniciopm.png" alt="Wireframe Inicio — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div id="wf-panel-servicio" class="wf-panel hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_desktop">Escritorio</p>
+        <!-- Servicios + Producto -->
+        <div class="grid sm:grid-cols-2 gap-5 mb-5">
           <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/serviciopc.png" style="height:220px;">
             <img src="img/Pipebol/serviciopc.png" alt="Wireframe Servicios — Escritorio" style="height:auto;"/>
             <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_servicio">Servicios</span>
             <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
           </div>
-        </div>
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_mobile">Móvil</p>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/serviciopm.png" style="height:220px;">
-            <img src="img/Pipebol/serviciopm.png" alt="Wireframe Servicios — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div id="wf-panel-producto" class="wf-panel hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_desktop">Escritorio</p>
           <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/productopc.png" style="height:220px;">
             <img src="img/Pipebol/productopc.png" alt="Wireframe Producto — Escritorio" style="height:auto;"/>
             <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_producto">Producto</span>
             <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
           </div>
         </div>
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_mobile">Móvil</p>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/productopm.jpg" style="height:220px;">
-            <img src="img/Pipebol/productopm.jpg" alt="Wireframe Producto — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div id="wf-panel-about" class="wf-panel hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_desktop">Escritorio</p>
+        <!-- About + Contacto -->
+        <div class="grid sm:grid-cols-2 gap-5">
           <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/aboutpc.png" style="height:220px;">
             <img src="img/Pipebol/aboutpc.png" alt="Wireframe About — Escritorio" style="height:auto;"/>
             <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_about">Nosotros</span>
             <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
           </div>
-        </div>
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_mobile">Móvil</p>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/aboutpm.png" style="height:220px;">
-            <img src="img/Pipebol/aboutpm.png" alt="Wireframe About — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div id="wf-panel-contacto" class="wf-panel hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_desktop">Escritorio</p>
           <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/contactopc.png" style="height:220px;">
             <img src="img/Pipebol/contactopc.png" alt="Wireframe Contacto — Escritorio" style="height:auto;"/>
             <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-        </div>
-        <div>
-          <p class="text-[10px] font-bold text-[#027845] dark:text-[#4ade80] tracking-widest uppercase mb-2 text-center" data-i18n="wf_mobile">Móvil</p>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/contactopm.png" style="height:220px;">
-            <img src="img/Pipebol/contactopm.png" alt="Wireframe Contacto — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_contacto">Contacto</span>
             <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
           </div>
         </div>
       </div>
-    </div>
 
+      <!-- PANEL MÓVIL — mismo layout -->
+      <div id="wf-panel-pm" class="wf-panel hidden">
+        <!-- Inicio full width -->
+        <div class="mb-5 shadow-xl shadow-black/15">
+          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/iniciopm.png" style="height:300px;">
+            <img src="img/Pipebol/iniciopm.png" alt="Wireframe Inicio — Móvil" style="height:auto;"/>
+            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_inicio">Inicio</span>
+            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
+          </div>
+        </div>
+        <!-- Servicios + Producto -->
+        <div class="grid sm:grid-cols-2 gap-5 mb-5">
+          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/serviciopm.png" style="height:220px;">
+            <img src="img/Pipebol/serviciopm.png" alt="Wireframe Servicios — Móvil" style="height:auto;"/>
+            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_servicio">Servicios</span>
+            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
+          </div>
+          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/productopm.jpg" style="height:220px;">
+            <img src="img/Pipebol/productopm.jpg" alt="Wireframe Producto — Móvil" style="height:auto;"/>
+            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_producto">Producto</span>
+            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
+          </div>
+        </div>
+        <!-- About + Contacto -->
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/aboutpm.png" style="height:220px;">
+            <img src="img/Pipebol/aboutpm.png" alt="Wireframe About — Móvil" style="height:auto;"/>
+            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_about">Nosotros</span>
+            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
+          </div>
+          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/contactopm.png" style="height:220px;">
+            <img src="img/Pipebol/contactopm.png" alt="Wireframe Contacto — Móvil" style="height:auto;"/>
+            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
+            <span class="peek-label" data-i18n="wf_tab_contacto">Contacto</span>
+            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1115,9 +1109,9 @@ const T = {
     page_home:'Home', page_products:'Productos', page_services:'Servicios', page_about:'Nosotros', page_contact:'Contacto',
     peek_expand:'Ver completo',
     wf_label:'Wireframes', wf_title:'Proceso de diseño',
-    wf_desc:'Estructura y arquitectura antes del visual. Cada página en versión escritorio y móvil.',
+    wf_desc:'Estructura y arquitectura antes del visual. Las 5 páginas en versión escritorio y móvil.',
+    wf_tab_pc:'Escritorio', wf_tab_pm:'Móvil',
     wf_tab_inicio:'Inicio', wf_tab_servicio:'Servicios', wf_tab_producto:'Producto', wf_tab_about:'Nosotros', wf_tab_contacto:'Contacto',
-    wf_desktop:'Escritorio', wf_mobile:'Móvil',
     cs_process_label:'Mi proceso en Pipebolagro', cs_process_title:'Cómo trabajé este proyecto',
     cs_process_subtitle:'No era solo hacer una web. Era construir una empresa desde su identidad digital hasta su presencia internacional.',
     cs_step1_title:'Entender el problema',
@@ -1193,9 +1187,9 @@ const T = {
     page_home:'Home', page_products:'Products', page_services:'Services', page_about:'About', page_contact:'Contact',
     peek_expand:'View full',
     wf_label:'Wireframes', wf_title:'Design Process',
-    wf_desc:'Structure and architecture before the visual. Each page in desktop and mobile version.',
+    wf_desc:'Structure and architecture before the visual. All 5 pages in desktop and mobile version.',
+    wf_tab_pc:'Desktop', wf_tab_pm:'Mobile',
     wf_tab_inicio:'Home', wf_tab_servicio:'Services', wf_tab_producto:'Product', wf_tab_about:'About', wf_tab_contacto:'Contact',
-    wf_desktop:'Desktop', wf_mobile:'Mobile',
     cs_process_label:'My process on Pipebolagro', cs_process_title:'How I worked this project',
     cs_process_subtitle:"It wasn't just about building a website. It was about building a company from its digital identity to its international presence.",
     cs_step1_title:'Understanding the problem',
@@ -1315,7 +1309,7 @@ if (glow) {
   }, { passive: false });
 })();
 
-/* ── Wireframe tabs ── */
+/* ── Wireframe tabs (pc / pm) ── */
 function setWfTab(name) {
   document.querySelectorAll('.wf-panel').forEach(p => p.classList.add('hidden'));
   document.querySelectorAll('.wf-tab').forEach(t => t.classList.remove('active-tab'));
