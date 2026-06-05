@@ -121,20 +121,38 @@
     .shot-placeholder { background:linear-gradient(135deg,#0d2015,#1a3a25); border-radius:1rem; display:flex; align-items:center; justify-content:center; overflow:hidden; }
     .shot-placeholder img { width:100%; height:100%; object-fit:cover; display:block; }
 
-    /* Wireframe tabs */
-    .wf-tab {
-      padding: .4rem 1rem; border-radius: 999px; font-size: .75rem; font-weight: 600;
-      border: 1px solid rgba(2,120,69,.22); color: rgba(2,120,69,.65);
-      background: transparent; cursor: pointer;
-      transition: all .2s ease;
-    }
-    .dark .wf-tab { border-color: rgba(74,222,128,.20); color: rgba(74,222,128,.55); }
-    .wf-tab:hover { border-color: rgba(2,120,69,.5); color: #027845; background: rgba(2,120,69,.06); }
-    .dark .wf-tab:hover { border-color: rgba(74,222,128,.45); color: #4ade80; background: rgba(74,222,128,.08); }
-    .wf-tab.active-tab { background: #027845; color: #fff; border-color: #027845; }
-    .dark .wf-tab.active-tab { background: #4ade80; color: #0a1a0a; border-color: #4ade80; }
-    .wf-panel { transition: opacity .25s ease; }
-    .wf-panel.hidden { display: none !important; }
+    /* Tabs PC/Móvil */
+    .wf-tab { padding:.4rem 1.1rem; border-radius:999px; font-size:.75rem; font-weight:600; border:1px solid rgba(2,120,69,.22); color:rgba(2,120,69,.65); background:transparent; cursor:pointer; transition:all .2s ease; display:inline-flex; align-items:center; gap:.4rem; }
+    .dark .wf-tab { border-color:rgba(74,222,128,.20); color:rgba(74,222,128,.55); }
+    .wf-tab:hover { border-color:rgba(2,120,69,.5); color:#027845; background:rgba(2,120,69,.06); }
+    .dark .wf-tab:hover { border-color:rgba(74,222,128,.45); color:#4ade80; background:rgba(74,222,128,.08); }
+    .wf-tab.active-tab { background:#027845; color:#fff; border-color:#027845; }
+    .dark .wf-tab.active-tab { background:#4ade80; color:#0a1a0a; border-color:#4ade80; }
+    .wf-panel.hidden { display:none !important; }
+
+    /* Carrusel */
+    .carousel-outer { position:relative; }
+    .carousel-viewport { overflow:hidden; border-radius:1rem; position:relative; }
+    .carousel-track { display:flex; transition:transform .45s cubic-bezier(.22,1,.36,1); }
+    .carousel-slide { flex:0 0 100%; position:relative; }
+    .carousel-slide img { width:100%; display:block; object-fit:cover; object-position:top; height:360px; }
+    .carousel-slide .peek-label { position:absolute; top:12px; left:12px; background:rgba(0,0,0,.55); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:3px 10px; font-size:10px; font-weight:700; color:rgba(255,255,255,.85); letter-spacing:.04em; text-transform:uppercase; }
+    /* fade inferior en cada slide */
+    .carousel-slide::after { content:''; position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to top,rgba(3,20,10,.88),transparent); pointer-events:none; border-radius:0 0 1rem 1rem; }
+    /* botón zoom en slide */
+    .carousel-slide .slide-zoom { position:absolute; bottom:14px; right:14px; z-index:5; display:flex; align-items:center; gap:5px; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(8px); border-radius:999px; padding:5px 11px; font-size:10px; font-weight:600; color:rgba(255,255,255,.80); cursor:zoom-in; transition:background .2s,border-color .2s; }
+    .carousel-slide .slide-zoom:hover { background:rgba(74,222,128,.20); border-color:rgba(74,222,128,.5); color:#4ade80; }
+    /* flechas */
+    .carousel-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; width:36px; height:36px; border-radius:50%; background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(8px); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s; }
+    .carousel-btn:hover { background:rgba(2,120,69,.65); border-color:rgba(74,222,128,.5); }
+    .carousel-prev { left:10px; }
+    .carousel-next { right:10px; }
+    /* dots */
+    .carousel-dots { display:flex; justify-content:center; gap:6px; margin-top:10px; }
+    .carousel-dot { width:6px; height:6px; border-radius:50%; background:rgba(2,120,69,.25); cursor:pointer; transition:all .2s; border:none; padding:0; }
+    .dark .carousel-dot { background:rgba(74,222,128,.22); }
+    .carousel-dot.active { background:#027845; transform:scale(1.35); }
+    .dark .carousel-dot.active { background:#4ade80; }
 
     /* Peek preview: muestra solo la parte superior con fade y botón de expandir */
     .peek-wrap {
@@ -656,7 +674,7 @@
 <!-- ══════════════════════════════
      WIREFRAMES
 ══════════════════════════════ -->
-<section class="py-14 px-5 sm:px-8 relative overflow-hidden">
+<section class="py-14 px-5 sm:px-8 relative overflow-hidden" id="sec-wireframes">
   <div class="max-w-6xl mx-auto">
 
     <div class="text-center mb-10">
@@ -668,107 +686,54 @@
       <p data-reveal="up" data-delay="2" class="text-sm text-[#1D1D1D]/70 dark:text-white/55 max-w-md mx-auto" data-i18n="wf_desc">Estructura y arquitectura antes del visual. Las 5 páginas en versión escritorio y móvil.</p>
     </div>
 
-    <!-- 2 tabs: PC / Móvil -->
+    <!-- 2 tabs PC / Móvil -->
     <div data-reveal="up" data-delay="3">
-      <div class="flex justify-center gap-3 mb-7" role="tablist">
-        <button onclick="setWfTab('pc')" id="tab-pc"
-          class="wf-tab active-tab flex items-center gap-2" data-i18n="wf_tab_pc">
+      <div class="flex justify-center gap-3 mb-6" role="tablist">
+        <button onclick="setWfTab('pc')" id="tab-pc" class="wf-tab active-tab">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
-          Escritorio
+          <span data-i18n="wf_tab_pc">Escritorio</span>
         </button>
-        <button onclick="setWfTab('pm')" id="tab-pm"
-          class="wf-tab flex items-center gap-2" data-i18n="wf_tab_pm">
+        <button onclick="setWfTab('pm')" id="tab-pm" class="wf-tab">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-          Móvil
+          <span data-i18n="wf_tab_pm">Móvil</span>
         </button>
       </div>
 
-      <!-- PANEL PC — mismo layout que hi-fi: 1 full + 2+2 -->
+      <!-- Carrusel PC -->
       <div id="wf-panel-pc" class="wf-panel">
-        <!-- Inicio full width -->
-        <div class="mb-5 shadow-xl shadow-black/15">
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/iniciopc.png" style="height:300px;">
-            <img src="img/Pipebol/iniciopc.png" alt="Wireframe Inicio — Escritorio" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_inicio">Inicio</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
+        <div class="carousel-outer" id="car-wf-pc">
+          <div class="carousel-viewport shadow-xl shadow-black/20">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="img/Pipebol/iniciopc.png" alt="Inicio PC" data-lb="img/Pipebol/iniciopc.png" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_inicio">Inicio</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/iniciopc.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+              <div class="carousel-slide"><img src="img/Pipebol/serviciopc.png" alt="Servicios PC" data-lb="img/Pipebol/serviciopc.png" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_servicio">Servicios</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/serviciopc.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+              <div class="carousel-slide"><img src="img/Pipebol/productopc.png" alt="Producto PC" data-lb="img/Pipebol/productopc.png" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_producto">Producto</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/productopc.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+              <div class="carousel-slide"><img src="img/Pipebol/aboutpc.png" alt="Nosotros PC" data-lb="img/Pipebol/aboutpc.png" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_about">Nosotros</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/aboutpc.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+              <div class="carousel-slide"><img src="img/Pipebol/contactopc.png" alt="Contacto PC" data-lb="img/Pipebol/contactopc.png" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_contacto">Contacto</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/contactopc.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+            </div>
           </div>
-        </div>
-        <!-- Servicios + Producto -->
-        <div class="grid sm:grid-cols-2 gap-5 mb-5">
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/serviciopc.png" style="height:220px;">
-            <img src="img/Pipebol/serviciopc.png" alt="Wireframe Servicios — Escritorio" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_servicio">Servicios</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/productopc.png" style="height:220px;">
-            <img src="img/Pipebol/productopc.png" alt="Wireframe Producto — Escritorio" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_producto">Producto</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-        </div>
-        <!-- About + Contacto -->
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/aboutpc.png" style="height:220px;">
-            <img src="img/Pipebol/aboutpc.png" alt="Wireframe About — Escritorio" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_about">Nosotros</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/contactopc.png" style="height:220px;">
-            <img src="img/Pipebol/contactopc.png" alt="Wireframe Contacto — Escritorio" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_contacto">Contacto</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
+          <button class="carousel-btn carousel-prev" data-car="car-wf-pc" aria-label="Anterior"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+          <button class="carousel-btn carousel-next" data-car="car-wf-pc" aria-label="Siguiente"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+          <div class="carousel-dots"><button class="carousel-dot active" data-car="car-wf-pc" data-idx="0"></button><button class="carousel-dot" data-car="car-wf-pc" data-idx="1"></button><button class="carousel-dot" data-car="car-wf-pc" data-idx="2"></button><button class="carousel-dot" data-car="car-wf-pc" data-idx="3"></button><button class="carousel-dot" data-car="car-wf-pc" data-idx="4"></button></div>
         </div>
       </div>
 
-      <!-- PANEL MÓVIL — mismo layout -->
+      <!-- Carrusel Móvil -->
       <div id="wf-panel-pm" class="wf-panel hidden">
-        <!-- Inicio full width -->
-        <div class="mb-5 shadow-xl shadow-black/15">
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/iniciopm.png" style="height:300px;">
-            <img src="img/Pipebol/iniciopm.png" alt="Wireframe Inicio — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_inicio">Inicio</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
+        <div class="carousel-outer" id="car-wf-pm">
+          <div class="carousel-viewport shadow-xl shadow-black/20">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="img/Pipebol/iniciopm.png" alt="Inicio Móvil" data-lb="img/Pipebol/iniciopm.png" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_inicio">Inicio</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/iniciopm.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+              <div class="carousel-slide"><img src="img/Pipebol/serviciopm.png" alt="Servicios Móvil" data-lb="img/Pipebol/serviciopm.png" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_servicio">Servicios</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/serviciopm.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+              <div class="carousel-slide"><img src="img/Pipebol/productopm.jpg" alt="Producto Móvil" data-lb="img/Pipebol/productopm.jpg" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_producto">Producto</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/productopm.jpg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+              <div class="carousel-slide"><img src="img/Pipebol/aboutpm.png" alt="Nosotros Móvil" data-lb="img/Pipebol/aboutpm.png" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_about">Nosotros</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/aboutpm.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+              <div class="carousel-slide"><img src="img/Pipebol/contactopm.png" alt="Contacto Móvil" data-lb="img/Pipebol/contactopm.png" class="lb-trigger"/><span class="peek-label" data-i18n="wf_tab_contacto">Contacto</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/contactopm.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+            </div>
           </div>
-        </div>
-        <!-- Servicios + Producto -->
-        <div class="grid sm:grid-cols-2 gap-5 mb-5">
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/serviciopm.png" style="height:220px;">
-            <img src="img/Pipebol/serviciopm.png" alt="Wireframe Servicios — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_servicio">Servicios</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/productopm.jpg" style="height:220px;">
-            <img src="img/Pipebol/productopm.jpg" alt="Wireframe Producto — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_producto">Producto</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-        </div>
-        <!-- About + Contacto -->
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/aboutpm.png" style="height:220px;">
-            <img src="img/Pipebol/aboutpm.png" alt="Wireframe About — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_about">Nosotros</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
-          <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/contactopm.png" style="height:220px;">
-            <img src="img/Pipebol/contactopm.png" alt="Wireframe Contacto — Móvil" style="height:auto;"/>
-            <div class="peek-fade" style="background:linear-gradient(to top,rgba(3,20,10,.95),transparent)"></div>
-            <span class="peek-label" data-i18n="wf_tab_contacto">Contacto</span>
-            <div class="peek-expand"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div>
-          </div>
+          <button class="carousel-btn carousel-prev" data-car="car-wf-pm" aria-label="Anterior"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+          <button class="carousel-btn carousel-next" data-car="car-wf-pm" aria-label="Siguiente"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+          <div class="carousel-dots"><button class="carousel-dot active" data-car="car-wf-pm" data-idx="0"></button><button class="carousel-dot" data-car="car-wf-pm" data-idx="1"></button><button class="carousel-dot" data-car="car-wf-pm" data-idx="2"></button><button class="carousel-dot" data-car="car-wf-pm" data-idx="3"></button><button class="carousel-dot" data-car="car-wf-pm" data-idx="4"></button></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -788,69 +753,20 @@
       <p data-reveal="up" data-delay="2" class="text-sm text-[#1D1D1D]/80 dark:text-white/60 max-w-xl mx-auto" data-i18n="result_desc">Plataforma 100% responsiva, bilingüe y orientada a la conversión B2B en el sector de exportación de granos.</p>
     </div>
 
-    <!-- Home — full width peek -->
-    <div data-reveal="up" data-delay="1" class="mb-5 shadow-2xl shadow-black/25">
-      <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipeindex.png" style="height:340px;">
-        <img src="img/Pipebol/pipeindex.png" alt="Pipebolagro — Home" style="height:auto;"/>
-        <div class="peek-fade"></div>
-        <span class="peek-label" data-i18n="page_home">Home</span>
-        <div class="peek-expand">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-          <span data-i18n="peek_expand">Ver página completa</span>
+    <!-- Carrusel hi-fi -->
+    <div data-reveal="up" data-delay="1" class="carousel-outer" id="car-hifi">
+      <div class="carousel-viewport shadow-2xl shadow-black/25">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="img/Pipebol/pipeindex.png" alt="Home" data-lb="img/Pipebol/pipeindex.png" class="lb-trigger"/><span class="peek-label" data-i18n="page_home">Home</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/pipeindex.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+          <div class="carousel-slide"><img src="img/Pipebol/pipeproduct.png" alt="Productos" data-lb="img/Pipebol/pipeproduct.png" class="lb-trigger"/><span class="peek-label" data-i18n="page_products">Productos</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/pipeproduct.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+          <div class="carousel-slide"><img src="img/Pipebol/pipeservicios.png" alt="Servicios" data-lb="img/Pipebol/pipeservicios.png" class="lb-trigger"/><span class="peek-label" data-i18n="page_services">Servicios</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/pipeservicios.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+          <div class="carousel-slide"><img src="img/Pipebol/pipeabout.png" alt="Nosotros" data-lb="img/Pipebol/pipeabout.png" class="lb-trigger"/><span class="peek-label" data-i18n="page_about">Nosotros</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/pipeabout.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
+          <div class="carousel-slide"><img src="img/Pipebol/pipecontact.png" alt="Contacto" data-lb="img/Pipebol/pipecontact.png" class="lb-trigger"/><span class="peek-label" data-i18n="page_contact">Contacto</span><div class="slide-zoom lb-trigger" data-lb="img/Pipebol/pipecontact.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg><span data-i18n="peek_expand">Ver completo</span></div></div>
         </div>
       </div>
-    </div>
-
-    <!-- Productos + Servicios -->
-    <div class="grid sm:grid-cols-2 gap-5 mb-5">
-      <div data-reveal="left">
-        <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipeproduct.png" style="height:260px;">
-          <img src="img/Pipebol/pipeproduct.png" alt="Pipebolagro — Productos" style="height:auto;"/>
-          <div class="peek-fade"></div>
-          <span class="peek-label" data-i18n="page_products">Productos</span>
-          <div class="peek-expand">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-            <span data-i18n="peek_expand">Ver página completa</span>
-          </div>
-        </div>
-      </div>
-      <div data-reveal="right">
-        <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipeservicios.png" style="height:260px;">
-          <img src="img/Pipebol/pipeservicios.png" alt="Pipebolagro — Servicios" style="height:auto;"/>
-          <div class="peek-fade"></div>
-          <span class="peek-label" data-i18n="page_services">Servicios</span>
-          <div class="peek-expand">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-            <span data-i18n="peek_expand">Ver página completa</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- About + Contacto -->
-    <div class="grid sm:grid-cols-2 gap-5">
-      <div data-reveal="left" data-delay="1">
-        <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipeabout.png" style="height:260px;">
-          <img src="img/Pipebol/pipeabout.png" alt="Pipebolagro — About" style="height:auto;"/>
-          <div class="peek-fade"></div>
-          <span class="peek-label" data-i18n="page_about">Nosotros</span>
-          <div class="peek-expand">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-            <span data-i18n="peek_expand">Ver página completa</span>
-          </div>
-        </div>
-      </div>
-      <div data-reveal="right" data-delay="1">
-        <div class="peek-wrap lb-trigger" data-lb="img/Pipebol/pipecontact.png" style="height:260px;">
-          <img src="img/Pipebol/pipecontact.png" alt="Pipebolagro — Contacto" style="height:auto;"/>
-          <div class="peek-fade"></div>
-          <span class="peek-label" data-i18n="page_contact">Contacto</span>
-          <div class="peek-expand">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-            <span data-i18n="peek_expand">Ver página completa</span>
-          </div>
-        </div>
-      </div>
+      <button class="carousel-btn carousel-prev" data-car="car-hifi" aria-label="Anterior"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+      <button class="carousel-btn carousel-next" data-car="car-hifi" aria-label="Siguiente"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+      <div class="carousel-dots"><button class="carousel-dot active" data-car="car-hifi" data-idx="0"></button><button class="carousel-dot" data-car="car-hifi" data-idx="1"></button><button class="carousel-dot" data-car="car-hifi" data-idx="2"></button><button class="carousel-dot" data-car="car-hifi" data-idx="3"></button><button class="carousel-dot" data-car="car-hifi" data-idx="4"></button></div>
     </div>
 
   </div>
@@ -1309,7 +1225,50 @@ if (glow) {
   }, { passive: false });
 })();
 
-/* ── Wireframe tabs (pc / pm) ── */
+/* ── Carruseles ── */
+const carState = {};
+function carGo(id, n) {
+  const wrap   = document.getElementById(id);
+  if (!wrap) return;
+  const track  = wrap.querySelector('.carousel-track');
+  const slides = track.querySelectorAll('.carousel-slide');
+  const dots   = document.querySelectorAll(`.carousel-dot[data-car="${id}"]`);
+  const total  = slides.length;
+  if (!carState[id]) carState[id] = 0;
+  carState[id] = (n + total) % total;
+  track.style.transform = `translateX(-${carState[id] * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === carState[id]));
+}
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.carousel-btn');
+  if (btn) {
+    const id  = btn.dataset.car;
+    const dir = btn.classList.contains('carousel-prev') ? -1 : 1;
+    carGo(id, (carState[id] || 0) + dir);
+    return;
+  }
+  const dot = e.target.closest('.carousel-dot');
+  if (dot) { carGo(dot.dataset.car, +dot.dataset.idx); }
+});
+
+/* Swipe touch para carruseles */
+(function() {
+  let startX = 0, activeId = null;
+  document.addEventListener('touchstart', e => {
+    const vp = e.target.closest('.carousel-viewport');
+    if (!vp) return;
+    activeId = vp.closest('.carousel-outer').id;
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+  document.addEventListener('touchend', e => {
+    if (!activeId) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) carGo(activeId, (carState[activeId] || 0) + (dx < 0 ? 1 : -1));
+    activeId = null;
+  }, { passive: true });
+})();
+
+/* ── Tabs PC / Móvil ── */
 function setWfTab(name) {
   document.querySelectorAll('.wf-panel').forEach(p => p.classList.add('hidden'));
   document.querySelectorAll('.wf-tab').forEach(t => t.classList.remove('active-tab'));
