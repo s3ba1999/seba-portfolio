@@ -512,17 +512,22 @@
       <p data-reveal="up" data-delay="2" class="text-sm text-[#1D1D1D]/55 dark:text-white/45 mt-3 max-w-xl mx-auto" data-i18n="wf_desc">Antes de abrir Figma, cuaderno. Cada flujo se pensó a mano para tomar decisiones de arquitectura cuando todavía era barato equivocarse.</p>
     </div>
 
+    <!-- Contador -->
+    <div class="flex justify-end mb-2 px-1">
+      <span id="wfCounter" class="text-[11px] font-bold text-[#1D1D1D]/40 dark:text-white/30 tabular-nums">1 / 7</span>
+    </div>
+
     <!-- Carrusel wireframes -->
     <div data-reveal="up" data-delay="3" class="relative">
-      <div class="overflow-hidden rounded-2xl shadow-2xl shadow-black/20 bg-[#f5f0e8] dark:bg-[#1a1a1a]">
+      <div class="overflow-hidden rounded-2xl shadow-2xl shadow-black/20" style="background:#f5f0e8;">
         <div id="wfTrack" class="flex transition-transform duration-500 ease-in-out">
-          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-01.jpeg" alt="Wireframe panel admin - deudas" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-01.jpeg"/></div>
-          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-02.jpeg" alt="Wireframe detalle deuda" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-02.jpeg"/></div>
-          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-03.jpeg" alt="Wireframe pagos móvil - todos" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-03.jpeg"/></div>
-          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-04.jpeg" alt="Wireframe widget pagos" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-04.jpeg"/></div>
-          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-05.jpeg" alt="Wireframe deuda compartida" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-05.jpeg"/></div>
-          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-06.jpeg" alt="Wireframe flujo 6" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-06.jpeg"/></div>
-          <div class="wf-slide w-full flex-shrink-0"><img src="img/Condaty/Wireframes/wf-07.jpeg" alt="Wireframe flujo 7" class="w-full block max-h-[480px] object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-07.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0 aspect-[4/3] flex items-center justify-center"><img src="img/Condaty/Wireframes/wf-01.jpeg" alt="Wireframe panel admin - deudas" class="w-full h-full object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-01.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0 aspect-[4/3] flex items-center justify-center"><img src="img/Condaty/Wireframes/wf-02.jpeg" alt="Wireframe detalle deuda" class="w-full h-full object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-02.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0 aspect-[4/3] flex items-center justify-center"><img src="img/Condaty/Wireframes/wf-03.jpeg" alt="Wireframe pagos móvil - todos" class="w-full h-full object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-03.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0 aspect-[4/3] flex items-center justify-center"><img src="img/Condaty/Wireframes/wf-04.jpeg" alt="Wireframe widget pagos" class="w-full h-full object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-04.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0 aspect-[4/3] flex items-center justify-center"><img src="img/Condaty/Wireframes/wf-05.jpeg" alt="Wireframe deuda compartida" class="w-full h-full object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-05.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0 aspect-[4/3] flex items-center justify-center"><img src="img/Condaty/Wireframes/wf-06.jpeg" alt="Wireframe flujo 6" class="w-full h-full object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-06.jpeg"/></div>
+          <div class="wf-slide w-full flex-shrink-0 aspect-[4/3] flex items-center justify-center"><img src="img/Condaty/Wireframes/wf-07.jpeg" alt="Wireframe flujo 7" class="w-full h-full object-contain lb-trigger" loading="lazy" data-lb="img/Condaty/Wireframes/wf-07.jpeg"/></div>
         </div>
       </div>
 
@@ -538,11 +543,8 @@
       </button>
     </div>
 
-    <!-- Caption + contador -->
-    <div class="flex items-center justify-between mt-4 px-1">
-      <p id="wfCaption" class="text-sm text-[#1D1D1D]/55 dark:text-white/45 transition-opacity duration-300"></p>
-      <span id="wfCounter" class="text-xs font-bold text-[#00E38C]">1 / 7</span>
-    </div>
+    <!-- Caption -->
+    <p id="wfCaption" class="text-sm text-[#1D1D1D]/55 dark:text-white/45 mt-4 px-1 transition-opacity duration-300 text-center"></p>
 
   </div>
 </section>
