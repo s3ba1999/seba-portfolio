@@ -2,8 +2,8 @@
 
 ## Info general
 - **Repo GitHub:** `s3ba1999/seba-portfolio`
-- **Deploy Netlify:** https://seba-portfolio.netlify.app
-- **Deploy Vercel:** conectado al mismo repo
+- **Deploy Vercel:** https://sebastian-delgado.vercel.app
+- **Knockout site Vercel:** https://knockout-gym.vercel.app
 - **Stack:** HTML estático + Tailwind CDN + Vanilla JS
 - **Archivos principales:** `index.html`, `condaty.html`, `pipebolagro.html`, `knockout.html`
 

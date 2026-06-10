@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sebastian-delgado.vercel.app/sitemap.xml

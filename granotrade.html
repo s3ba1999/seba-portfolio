@@ -9,6 +9,11 @@
   <meta name="keywords" content="Granotrade, caso de estudio, case study, UI/UX, web design, branding, exportación de granos, Bolivia, Sebastian Delgado"/>
   <link rel="canonical" href="https://sebastian-delgado.vercel.app/granotrade"/>
   <link rel="icon" type="image/png" href="img/logo-white.png"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#3e7907"/>
+  <link rel="alternate" hreflang="es" href="https://sebastian-delgado.vercel.app/granotrade"/>
+  <link rel="alternate" hreflang="en" href="https://sebastian-delgado.vercel.app/granotrade"/>
+  <link rel="alternate" hreflang="x-default" href="https://sebastian-delgado.vercel.app/granotrade"/>
 
   <!-- Open Graph -->
   <meta property="og:type" content="article"/>
@@ -18,6 +23,7 @@
   <meta property="og:description" content="De prestadora de servicios a exportadora con marca propia: cómo diseñé y desarrollé granotrade.es de inicio a fin."/>
   <meta property="og:image" content="https://sebastian-delgado.vercel.app/img/Granotrade/gt-inicio.png"/>
   <meta property="og:locale" content="es_BO"/>
+  <meta property="og:locale:alternate" content="en_US"/>
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
@@ -689,11 +695,11 @@
 // ── Theme ───────────────────────────────────────────────────────────
 (()=>{
   const root = document.documentElement;
-  const saved = localStorage.getItem('gt_theme');
+  const saved = localStorage.getItem('theme');
   if(saved==='dark'||(saved===null&&window.matchMedia('(prefers-color-scheme:dark)').matches)) root.classList.add('dark');
   window.toggleTheme=()=>{
     root.classList.toggle('dark');
-    localStorage.setItem('gt_theme', root.classList.contains('dark')?'dark':'light');
+    localStorage.setItem('theme', root.classList.contains('dark')?'dark':'light');
   };
 })();
 
@@ -767,9 +773,9 @@ const T = {
   }
 };
 
-let currentLang = localStorage.getItem('seba_lang') || 'es';
+let currentLang = localStorage.getItem('lang') || 'es';
 function setLang(l){
-  currentLang=l; localStorage.setItem('seba_lang',l);
+  currentLang=l; localStorage.setItem('lang',l);
   document.documentElement.lang=l;
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const k=el.dataset.i18n; if(T[l]&&T[l][k]) el.textContent=T[l][k];
