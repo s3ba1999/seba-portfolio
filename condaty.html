@@ -376,15 +376,15 @@
         <div class="grid grid-cols-2 gap-4">
           <div class="rounded-xl p-4 text-center" style="background:rgba(0,227,140,.08); border:1px solid rgba(0,227,140,.18)">
             <div class="flex items-baseline justify-center gap-0.5 mb-1">
-              <span class="metric-num">30</span><span class="metric-pct">%</span>
+              <span class="metric-num">5</span><span class="metric-pct">→3</span>
             </div>
-            <p class="text-xs text-[#1D1D1D]/75 dark:text-white/65 font-medium leading-tight" data-i18n="kpi1">Reducción de pasos operativos</p>
+            <p class="text-xs text-[#1D1D1D]/75 dark:text-white/65 font-medium leading-tight" data-i18n="kpi1">Pantallas en el flujo de registro</p>
           </div>
           <div class="rounded-xl p-4 text-center" style="background:rgba(0,227,140,.08); border:1px solid rgba(0,227,140,.18)">
             <div class="flex items-baseline justify-center gap-0.5 mb-1">
-              <span class="metric-num">40</span><span class="metric-pct">%</span>
+              <span class="metric-num">−2</span>
             </div>
-            <p class="text-xs text-[#1D1D1D]/75 dark:text-white/65 font-medium leading-tight" data-i18n="kpi2">Mejora en rendimiento técnico</p>
+            <p class="text-xs text-[#1D1D1D]/75 dark:text-white/65 font-medium leading-tight" data-i18n="kpi2">Pantallas en flujo de reservas</p>
           </div>
         </div>
       </div>
@@ -1121,6 +1121,51 @@
 
 
 <!-- ══════════════════════════════
+     RESULTADOS DE INVESTIGACIÓN
+══════════════════════════════ -->
+<section class="py-16 px-5 sm:px-8 relative">
+  <div class="max-w-6xl mx-auto">
+    <div data-reveal="up" class="text-center mb-10">
+      <div class="flex items-center justify-center gap-3 mb-3">
+        <div class="h-px w-8 bg-[#00E38C]"></div>
+        <span class="text-xs font-bold tracking-widest text-[#007a4d] dark:text-[#00E38C] uppercase" data-i18n="results_label">Resultados del proceso</span>
+        <div class="h-px w-8 bg-[#00E38C]"></div>
+      </div>
+      <h2 data-reveal="up" data-delay="1" class="text-3xl font-black text-[#0F2C6E] dark:text-white" data-i18n="results_title">Números que respaldan el diseño</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+      <div data-reveal="up" data-delay="1" class="glass-card rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black text-[#0F2C6E] dark:text-white mb-1">10<span class="text-[#00E38C]">+</span></div>
+        <p class="text-xs font-semibold text-[#1D1D1D]/65 dark:text-white/55 leading-tight" data-i18n="res1">Entrevistas a usuarios</p>
+        <p class="text-[10px] text-[#1D1D1D]/40 dark:text-white/30 mt-1" data-i18n="res1_sub">Residentes · Guardias · Admins</p>
+      </div>
+
+      <div data-reveal="up" data-delay="2" class="glass-card rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black text-[#0F2C6E] dark:text-white mb-1">3</div>
+        <p class="text-xs font-semibold text-[#1D1D1D]/65 dark:text-white/55 leading-tight" data-i18n="res2">Rondas de testing</p>
+        <p class="text-[10px] text-[#1D1D1D]/40 dark:text-white/30 mt-1" data-i18n="res2_sub">Con prototipos funcionales</p>
+      </div>
+
+      <div data-reveal="up" data-delay="3" class="glass-card rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black text-[#0F2C6E] dark:text-white mb-1">−<span class="text-[#00E38C]">40<span class="text-2xl">%</span></span></div>
+        <p class="text-xs font-semibold text-[#1D1D1D]/65 dark:text-white/55 leading-tight" data-i18n="res3">Pantallas en registro</p>
+        <p class="text-[10px] text-[#1D1D1D]/40 dark:text-white/30 mt-1">5 → 3 pasos</p>
+      </div>
+
+      <div data-reveal="up" data-delay="4" class="glass-card rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black text-[#0F2C6E] dark:text-white mb-1">~<span class="text-[#00E38C]">35<span class="text-2xl">%</span></span></div>
+        <p class="text-xs font-semibold text-[#1D1D1D]/65 dark:text-white/55 leading-tight" data-i18n="res4">Reducción de abandono</p>
+        <p class="text-[10px] text-[#1D1D1D]/40 dark:text-white/30 mt-1" data-i18n="res4_sub">Proyección · testing validado</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
      MI PROCESO EN ESTE PROYECTO
 ══════════════════════════════ -->
 <section class="py-24 relative overflow-hidden">
@@ -1283,7 +1328,11 @@ const T = {
     p3:'Administradores con gestión fragmentada y manual que comprometía la seguridad.',
     solution_title:'La Solución',
     solution_desc:'Ecosistema SaaS integral que unifica los tres perfiles en dos apps móviles y un panel web: pagos digitales, reservas, control QR y dashboard automatizado.',
-    kpi1:'Reducción de pasos operativos', kpi2:'Mejora en rendimiento técnico',
+    kpi1:'Pantallas en el flujo de registro', kpi2:'Pantallas en flujo de reservas',
+    results_label:'Resultados del proceso', results_title:'Números que respaldan el diseño',
+    res1:'Entrevistas a usuarios', res1_sub:'Residentes · Guardias · Admins',
+    res2:'Rondas de testing', res2_sub:'Con prototipos funcionales',
+    res3:'Pantallas en registro', res4:'Reducción de abandono', res4_sub:'Proyección · testing validado',
     arch_label:'Arquitectura', arch_title:'Tres aplicaciones, un ecosistema',
     role_admins:'Administradores', role_guards:'Guardias', role_residents:'Residentes',
     admin_app:'Panel Web', f_finances:'Dashboard financiero', f_units:'Módulo de unidades', f_community:'Chat y comunidad', f_security:'Vigilancia y seguridad',
@@ -1371,7 +1420,11 @@ const T = {
     p3:'Administrators struggled with fragmented, manual management that compromised security.',
     solution_title:'The Solution',
     solution_desc:'A comprehensive SaaS ecosystem unifying all three profiles across two mobile apps and a web dashboard: digital payments, reservations, QR access, and an automated dashboard.',
-    kpi1:'Reduction in operational steps', kpi2:'Improvement in technical performance',
+    kpi1:'Screens in registration flow', kpi2:'Screens in booking flow',
+    results_label:'Process results', results_title:'Numbers that back the design',
+    res1:'User interviews', res1_sub:'Residents · Guards · Admins',
+    res2:'Testing rounds', res2_sub:'With functional prototypes',
+    res3:'Screens in registration', res4:'Drop-off reduction', res4_sub:'Projection · validated in testing',
     arch_label:'Architecture', arch_title:'Three apps, one ecosystem',
     role_admins:'Administrators', role_guards:'Guards', role_residents:'Residents',
     admin_app:'Web Dashboard', f_finances:'Financial dashboard', f_units:'Units module', f_community:'Chat & community', f_security:'Security & surveillance',
