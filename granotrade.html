@@ -141,6 +141,9 @@
 </head>
 <body>
 
+<div id="cursor-glow" class="pointer-events-none fixed w-[320px] h-[320px] rounded-full opacity-0 transition-opacity duration-500 hidden lg:block"
+  style="background:radial-gradient(circle,rgba(218,144,11,.10) 0%,transparent 70%);transform:translate(-50%,-50%);z-index:0;top:0;left:0"></div>
+
 <!-- ── Lightbox ───────────────────────── -->
 <div id="lb-overlay" role="dialog" aria-modal="true">
   <button id="lb-close" aria-label="Cerrar">✕</button>
@@ -919,6 +922,12 @@ window.gtSwitchTab = tab=>{
     tM.classList.add('ss-tab-active'); tD.classList.remove('ss-tab-active');
   }
 };
+
+const glow = document.getElementById('cursor-glow');
+if (glow) {
+  document.addEventListener('mousemove', e => { glow.style.left=e.clientX+'px'; glow.style.top=e.clientY+'px'; glow.style.opacity='1'; });
+  document.addEventListener('mouseleave', () => { glow.style.opacity='0'; });
+}
 </script>
 </body>
 </html>
