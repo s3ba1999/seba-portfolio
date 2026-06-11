@@ -148,11 +148,14 @@
 <!-- ══════════════════════════════
      NAV
 ══════════════════════════════ -->
-<nav class="glass-nav fixed top-0 left-0 right-0 z-50 px-5 sm:px-8 h-14 flex items-center justify-between">
+<nav class="glass-nav fixed top-0 left-0 right-0 z-50 px-5 sm:px-8 h-14 flex items-center justify-between relative">
   <a href="index.html" class="flex items-center gap-2 text-[#3e7907] dark:text-[#86efac] hover:opacity-75 transition-opacity">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
     <span class="text-sm font-semibold" data-i18n="nav_back">Volver</span>
   </a>
+  <!-- Project name — tablet/desktop only -->
+  <span class="hidden sm:block absolute left-1/2 -translate-x-1/2 text-sm font-bold text-[#3e7907] dark:text-[#86efac] pointer-events-none tracking-tight">Granotrade</span>
+
   <div class="flex items-center gap-3">
     <div class="nav-pill text-xs font-semibold">
       <button class="lang-btn is-active" onclick="setLang('es')" data-i18n="lang_es">ES</button>
