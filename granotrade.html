@@ -123,9 +123,11 @@
     .carousel-dot { width:6px; height:6px; border-radius:50%; background:rgba(62,121,7,.25); cursor:pointer; transition:all .2s; border:none; padding:0; }
     .carousel-dot.active { background:#3e7907; transform:scale(1.35); }
 
-    /* Wireframe placeholder */
-    .wf-placeholder { background:linear-gradient(135deg,rgba(62,121,7,.08),rgba(218,144,11,.06)); border:2px dashed rgba(62,121,7,.25); border-radius:1rem; min-height:220px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; }
-    .dark .wf-placeholder { background:linear-gradient(135deg,rgba(62,121,7,.10),rgba(218,144,11,.08)); border-color:rgba(134,239,172,.20); }
+    /* Screenshot tabs */
+    .ss-tab { background:rgba(62,121,7,.08); color:rgba(62,121,7,.7); border:1px solid rgba(62,121,7,.18); }
+    .dark .ss-tab { background:rgba(255,255,255,.07); color:rgba(255,255,255,.45); border-color:rgba(255,255,255,.12); }
+    .ss-tab-active { background:#3e7907; color:#fff; border-color:#3e7907; }
+    .dark .ss-tab-active { background:#3e7907; color:#fff; border-color:#3e7907; }
 
     /* Lightbox */
     #lb-overlay { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.92); backdrop-filter:blur(10px); overflow:hidden; }
@@ -197,7 +199,7 @@
         </h1>
 
         <p data-reveal="up" data-delay="5" class="text-sm text-[#1D1D1D]/70 dark:text-white/60 max-w-lg leading-relaxed mb-6" data-i18n="hero_desc">
-          Granotrade quería dejar de ser un eslabón invisible en la cadena de exportación. Diseñé y desarrollé su presencia digital completa — marca, web, dominio, hosting — para conectar Bolivia con compradores en China, Latinoamérica y Estados Unidos.
+          Diseñé y desarrollé la presencia digital completa de Granotrade: marca, web, dominio y hosting para conectar Bolivia con compradores en China, Latinoamérica y Estados Unidos.
         </p>
 
         <!-- Tags -->
@@ -291,7 +293,7 @@
     <div class="grid md:grid-cols-2 gap-8 items-start">
       <div data-reveal="left">
         <h2 class="text-3xl md:text-4xl font-spartan font-black text-[#0f2b00] dark:text-white mb-5" data-i18n="problem_title">Existían, pero nadie los conocía.</h2>
-        <p class="text-[#1D1D1D]/70 dark:text-white/60 leading-relaxed mb-4" data-i18n="problem_desc1">El equipo detrás de Granotrade llevaba años operando en el sector agroexportador boliviano — pero siempre como prestadores de servicios para terceros. Tenían el conocimiento, los contactos y la calidad. Les faltaba una identidad propia.</p>
+        <p class="text-[#1D1D1D]/70 dark:text-white/60 leading-relaxed mb-4" data-i18n="problem_desc1">El equipo detrás de Granotrade llevaba años operando en el sector agroexportador boliviano, siempre como prestadores de servicios para terceros. Tenían el conocimiento, los contactos y la calidad. Les faltaba una identidad propia.</p>
         <p class="text-[#1D1D1D]/70 dark:text-white/60 leading-relaxed" data-i18n="problem_desc2">Cuando decidieron crear Granotrade y apuntar directamente a compradores en China, Latinoamérica y Estados Unidos, el primer obstáculo era el más básico: no tenían presencia digital. Sin web, sin dominio, sin marca visual. Para un comprador internacional, simplemente no existían.</p>
       </div>
 
@@ -402,22 +404,63 @@
       <p data-reveal="up" data-delay="2" class="text-sm text-[#1D1D1D]/55 dark:text-white/45 mt-3 max-w-xl mx-auto" data-i18n="wf_desc">Antes de escribir una línea de código, la arquitectura de cada página quedó resuelta en papel. Eso evita decisiones costosas durante el desarrollo.</p>
     </div>
 
-    <!-- Placeholder — Sebastian agregará las fotos de bocetos -->
-    <div data-reveal="up" data-delay="3" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <div class="wf-placeholder">
-        <svg class="w-10 h-10 text-[#3e7907]/40 dark:text-[#86efac]/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
-        <p class="text-sm font-semibold text-[#3e7907]/60 dark:text-[#86efac]/40" data-i18n="wf_ph_title">Wireframe — Inicio</p>
-        <p class="text-xs text-[#1D1D1D]/35 dark:text-white/25" data-i18n="wf_ph_sub">Boceto próximamente</p>
+    <div data-reveal="up" data-delay="3" class="carousel-outer">
+      <div class="carousel-viewport shadow-2xl shadow-black/20">
+        <div class="carousel-track" id="wfTrack">
+          <div class="carousel-slide">
+            <img src="img/Granotrade/wireframe/inicio.png" alt="Wireframe Inicio" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/wireframe/inicio.png" style="height:360px;object-fit:contain;background:#f8f5f0;"/>
+            <span class="peek-label" data-i18n="slide_home">Inicio</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/wireframe/inicio.png">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span data-i18n="zoom_btn">Ver completo</span>
+            </span>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/Granotrade/wireframe/producto.png" alt="Wireframe Productos" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/wireframe/producto.png" style="height:360px;object-fit:contain;background:#f8f5f0;"/>
+            <span class="peek-label" data-i18n="slide_products">Productos</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/wireframe/producto.png">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span data-i18n="zoom_btn">Ver completo</span>
+            </span>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/Granotrade/wireframe/servicio.png" alt="Wireframe Servicios" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/wireframe/servicio.png" style="height:360px;object-fit:contain;background:#f8f5f0;"/>
+            <span class="peek-label" data-i18n="slide_services">Servicios</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/wireframe/servicio.png">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span data-i18n="zoom_btn">Ver completo</span>
+            </span>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/Granotrade/wireframe/nosotros.png" alt="Wireframe Nosotros" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/wireframe/nosotros.png" style="height:360px;object-fit:contain;background:#f8f5f0;"/>
+            <span class="peek-label" data-i18n="slide_about">Nosotros</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/wireframe/nosotros.png">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span data-i18n="zoom_btn">Ver completo</span>
+            </span>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/Granotrade/wireframe/contacto.png" alt="Wireframe Contacto" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/wireframe/contacto.png" style="height:360px;object-fit:contain;background:#f8f5f0;"/>
+            <span class="peek-label" data-i18n="slide_contact">Contacto</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/wireframe/contacto.png">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span data-i18n="zoom_btn">Ver completo</span>
+            </span>
+          </div>
+        </div>
       </div>
-      <div class="wf-placeholder">
-        <svg class="w-10 h-10 text-[#3e7907]/40 dark:text-[#86efac]/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
-        <p class="text-sm font-semibold text-[#3e7907]/60 dark:text-[#86efac]/40" data-i18n="wf_ph_title2">Wireframe — Productos</p>
-        <p class="text-xs text-[#1D1D1D]/35 dark:text-white/25" data-i18n="wf_ph_sub">Boceto próximamente</p>
-      </div>
-      <div class="wf-placeholder">
-        <svg class="w-10 h-10 text-[#3e7907]/40 dark:text-[#86efac]/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
-        <p class="text-sm font-semibold text-[#3e7907]/60 dark:text-[#86efac]/40" data-i18n="wf_ph_title3">Wireframe — Contacto</p>
-        <p class="text-xs text-[#1D1D1D]/35 dark:text-white/25" data-i18n="wf_ph_sub">Boceto próximamente</p>
+      <button class="carousel-btn carousel-prev" onclick="wfMove(-1)" aria-label="Anterior">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="carousel-btn carousel-next" onclick="wfMove(1)" aria-label="Siguiente">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <div class="carousel-dots" id="wfDots">
+        <button class="carousel-dot active" onclick="wfGoTo(0)"></button>
+        <button class="carousel-dot" onclick="wfGoTo(1)"></button>
+        <button class="carousel-dot" onclick="wfGoTo(2)"></button>
+        <button class="carousel-dot" onclick="wfGoTo(3)"></button>
+        <button class="carousel-dot" onclick="wfGoTo(4)"></button>
       </div>
     </div>
   </div>
@@ -519,64 +562,93 @@
       <p data-reveal="up" data-delay="2" class="text-sm text-[#1D1D1D]/55 dark:text-white/45 mt-3 max-w-xl mx-auto" data-i18n="ss_desc">Cada página cumple un rol específico en el journey del comprador internacional: de conocer la empresa a solicitar una cotización B2B.</p>
     </div>
 
-    <!-- Carrusel -->
-    <div data-reveal="up" data-delay="3" class="carousel-outer">
+    <!-- Tabs Desktop / Móvil -->
+    <div data-reveal="up" data-delay="3" class="flex justify-center mb-6 gap-2">
+      <button id="tabDesktop" onclick="gtSwitchTab('desktop')" class="ss-tab ss-tab-active text-xs font-bold px-4 py-2 rounded-full transition-all" data-i18n="tab_desktop">Escritorio</button>
+      <button id="tabMobile"  onclick="gtSwitchTab('mobile')"  class="ss-tab text-xs font-bold px-4 py-2 rounded-full transition-all" data-i18n="tab_mobile">Móvil</button>
+    </div>
+
+    <!-- Carrusel Desktop -->
+    <div data-reveal="up" data-delay="4" id="gtDesktopCar" class="carousel-outer">
       <div class="carousel-viewport shadow-2xl shadow-black/20">
         <div class="carousel-track" id="gtTrack">
           <div class="carousel-slide">
-            <img src="img/Granotrade/gt-inicio.jpg" alt="Granotrade — Inicio" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-inicio.jpg"/>
+            <img src="img/Granotrade/gt-inicio.jpg" alt="Granotrade Inicio" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-inicio.jpg"/>
             <span class="peek-label" data-i18n="slide_home">Inicio</span>
-            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-inicio.jpg">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-              <span data-i18n="zoom_btn">Ver completo</span>
-            </span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-inicio.jpg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
           </div>
           <div class="carousel-slide">
-            <img src="img/Granotrade/gt-productos.jpg" alt="Granotrade — Productos" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-productos.jpg"/>
+            <img src="img/Granotrade/gt-productos.jpg" alt="Granotrade Productos" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-productos.jpg"/>
             <span class="peek-label" data-i18n="slide_products">Productos</span>
-            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-productos.jpg">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-              <span data-i18n="zoom_btn">Ver completo</span>
-            </span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-productos.jpg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
           </div>
           <div class="carousel-slide">
-            <img src="img/Granotrade/gt-servicios.jpg" alt="Granotrade — Servicios" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-servicios.jpg"/>
+            <img src="img/Granotrade/gt-servicios.jpg" alt="Granotrade Servicios" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-servicios.jpg"/>
             <span class="peek-label" data-i18n="slide_services">Servicios</span>
-            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-servicios.jpg">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-              <span data-i18n="zoom_btn">Ver completo</span>
-            </span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-servicios.jpg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
           </div>
           <div class="carousel-slide">
-            <img src="img/Granotrade/gt-nosotros.jpg" alt="Granotrade — Nosotros" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-nosotros.jpg"/>
+            <img src="img/Granotrade/gt-nosotros.jpg" alt="Granotrade Nosotros" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-nosotros.jpg"/>
             <span class="peek-label" data-i18n="slide_about">Nosotros</span>
-            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-nosotros.jpg">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-              <span data-i18n="zoom_btn">Ver completo</span>
-            </span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-nosotros.jpg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
           </div>
           <div class="carousel-slide">
-            <img src="img/Granotrade/gt-contacto.jpg" alt="Granotrade — Contacto" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-contacto.jpg"/>
+            <img src="img/Granotrade/gt-contacto.jpg" alt="Granotrade Contacto" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/gt-contacto.jpg"/>
             <span class="peek-label" data-i18n="slide_contact">Contacto</span>
-            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-contacto.jpg">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-              <span data-i18n="zoom_btn">Ver completo</span>
-            </span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/gt-contacto.jpg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
           </div>
         </div>
       </div>
-      <button class="carousel-btn carousel-prev" onclick="gtMove(-1)" aria-label="Anterior">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-      </button>
-      <button class="carousel-btn carousel-next" onclick="gtMove(1)" aria-label="Siguiente">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      </button>
+      <button class="carousel-btn carousel-prev" onclick="gtMove(-1)" aria-label="Anterior"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+      <button class="carousel-btn carousel-next" onclick="gtMove(1)"  aria-label="Siguiente"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
       <div class="carousel-dots" id="gtDots">
         <button class="carousel-dot active" onclick="gtGoTo(0)"></button>
         <button class="carousel-dot" onclick="gtGoTo(1)"></button>
         <button class="carousel-dot" onclick="gtGoTo(2)"></button>
         <button class="carousel-dot" onclick="gtGoTo(3)"></button>
         <button class="carousel-dot" onclick="gtGoTo(4)"></button>
+      </div>
+    </div>
+
+    <!-- Carrusel Móvil -->
+    <div id="gtMobileCar" class="carousel-outer hidden">
+      <div class="carousel-viewport shadow-2xl shadow-black/20">
+        <div class="carousel-track" id="gtMobileTrack">
+          <div class="carousel-slide">
+            <img src="img/Granotrade/iniciomb.jpeg" alt="Granotrade Inicio mobile" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/iniciomb.jpeg" style="height:480px;object-fit:contain;background:#0a1f00;"/>
+            <span class="peek-label" data-i18n="slide_home">Inicio</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/iniciomb.jpeg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/Granotrade/productmb.jpeg" alt="Granotrade Productos mobile" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/productmb.jpeg" style="height:480px;object-fit:contain;background:#0a1f00;"/>
+            <span class="peek-label" data-i18n="slide_products">Productos</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/productmb.jpeg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/Granotrade/serviciomb.jpeg" alt="Granotrade Servicios mobile" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/serviciomb.jpeg" style="height:480px;object-fit:contain;background:#0a1f00;"/>
+            <span class="peek-label" data-i18n="slide_services">Servicios</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/serviciomb.jpeg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/Granotrade/nosotrosmb.jpeg" alt="Granotrade Nosotros mobile" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/nosotrosmb.jpeg" style="height:480px;object-fit:contain;background:#0a1f00;"/>
+            <span class="peek-label" data-i18n="slide_about">Nosotros</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/nosotrosmb.jpeg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/Granotrade/contactomb.jpeg" alt="Granotrade Contacto mobile" loading="lazy" class="lb-trigger" data-lb="img/Granotrade/contactomb.jpeg" style="height:480px;object-fit:contain;background:#0a1f00;"/>
+            <span class="peek-label" data-i18n="slide_contact">Contacto</span>
+            <span class="slide-zoom lb-trigger" data-lb="img/Granotrade/contactomb.jpeg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg><span data-i18n="zoom_btn">Ver completo</span></span>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn carousel-prev" onclick="gtMobileMove(-1)" aria-label="Anterior"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+      <button class="carousel-btn carousel-next" onclick="gtMobileMove(1)"  aria-label="Siguiente"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+      <div class="carousel-dots" id="gtMobileDots">
+        <button class="carousel-dot active" onclick="gtMobileGoTo(0)"></button>
+        <button class="carousel-dot" onclick="gtMobileGoTo(1)"></button>
+        <button class="carousel-dot" onclick="gtMobileGoTo(2)"></button>
+        <button class="carousel-dot" onclick="gtMobileGoTo(3)"></button>
+        <button class="carousel-dot" onclick="gtMobileGoTo(4)"></button>
       </div>
     </div>
   </div>
@@ -657,7 +729,7 @@
       <div class="h-px w-8 bg-[#da900b]"></div>
     </div>
     <h2 data-reveal="up" data-delay="1" class="text-3xl md:text-4xl font-spartan font-black text-white mb-4" data-i18n="cta_title">El sitio está vivo.</h2>
-    <p data-reveal="up" data-delay="2" class="text-white/60 mb-8" data-i18n="cta_desc">Granotrade ya está recibiendo visitas internacionales en granotrade.es — su primera presencia digital como exportadora independiente.</p>
+    <p data-reveal="up" data-delay="2" class="text-white/60 mb-8" data-i18n="cta_desc">Granotrade ya está recibiendo visitas internacionales en granotrade.es, su primera presencia digital como exportadora independiente.</p>
     <div data-reveal="up" data-delay="3" class="flex flex-wrap items-center justify-center gap-4">
       <a href="https://granotrade.es" target="_blank" rel="noopener"
          class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105"
@@ -704,11 +776,11 @@ const T = {
   es:{
     nav_back:'Volver', nav_case:'Caso de Estudio', lang_es:'ES', lang_en:'EN',
     hero_slogan:'Calidad que cruza fronteras',
-    hero_desc:'Granotrade quería dejar de ser un eslabón invisible en la cadena de exportación. Diseñé y desarrollé su presencia digital completa — marca, web, dominio, hosting — para que puedan conectar directamente con compradores en China, Latinoamérica y Estados Unidos.',
+    hero_desc:'Diseñé y desarrollé la presencia digital completa de Granotrade: marca, web, dominio y hosting para conectar Bolivia con compradores en China, Latinoamérica y Estados Unidos.',
     ctx_role_label:'Rol', ctx_role:'Designer + Dev', ctx_role_sub:'End-to-end · Solo',
     ctx_platform_label:'Plataformas', ctx_result_label:'Resultado', ctx_result:'Sitio live',
     problem_label:'El Problema', problem_title:'Existían, pero nadie los conocía.',
-    problem_desc1:'El equipo detrás de Granotrade llevaba años operando en el sector agroexportador boliviano — pero siempre como prestadores de servicios para terceros. Tenían el conocimiento, los contactos y la calidad. Les faltaba una identidad propia.',
+    problem_desc1:'El equipo detrás de Granotrade llevaba años operando en el sector agroexportador boliviano, siempre como prestadores de servicios para terceros. Tenían el conocimiento, los contactos y la calidad. Les faltaba una identidad propia.',
     problem_desc2:'Cuando decidieron crear Granotrade y apuntar directamente a compradores en China, Latinoamérica y Estados Unidos, el primer obstáculo era el más básico: no tenían presencia digital. Sin web, sin dominio, sin marca visual. Para un comprador internacional, simplemente no existían.',
     pain1_title:'Sin presencia digital', pain1_desc:'Cero web, cero dominio, cero correo corporativo. Un comprador en China que buscara Granotrade no encontraba nada.',
     pain2_title:'Mercado internacional exigente', pain2_desc:'Los compradores internacionales evalúan la credibilidad digital antes de cualquier negociación. La primera impresión ocurre en la web.',
@@ -729,20 +801,21 @@ const T = {
     feat4_title:'Animaciones de scroll', feat4_desc:'Reveal animations con IntersectionObserver, contadores animados y parallax corregido para iOS.',
     feat5_title:'Dominio + Hosting gestionado', feat5_desc:'Compra y configuración de granotrade.es + servidor de producción. Entrega llave en mano.',
     feat6_title:'Responsive completo', feat6_desc:'Diseño adaptado a móvil, tablet y desktop. Menú hamburger, fix de parallax en iOS y navegación táctil.',
-    cta_label:'Sitio en producción', cta_title:'El sitio está vivo.', cta_desc:'Granotrade ya está recibiendo visitas internacionales en granotrade.es — su primera presencia digital como exportadora independiente.',
+    cta_label:'Sitio en producción', cta_title:'El sitio está vivo.', cta_desc:'Granotrade ya está recibiendo visitas internacionales en granotrade.es, su primera presencia digital como exportadora independiente.',
     cta_btn:'Ver granotrade.es', cta_back:'Ver más proyectos',
     footer_copy:'© 2026 Sebastian Delgado', footer_back:'← Volver al portfolio',
     zoom_btn:'Ver completo',
+    tab_desktop:'Escritorio', tab_mobile:'Móvil',
     slide_home:'Inicio', slide_products:'Productos', slide_services:'Servicios', slide_about:'Nosotros', slide_contact:'Contacto'
   },
   en:{
     nav_back:'Back', nav_case:'Case Study', lang_es:'ES', lang_en:'EN',
     hero_slogan:'Quality that crosses borders',
-    hero_desc:'Granotrade wanted to stop being an invisible link in the export chain. I designed and developed their full digital presence — brand, website, domain, hosting — so they can connect directly with buyers in China, Latin America and the United States.',
+    hero_desc:"I designed and developed Granotrade's full digital presence: brand, website, domain and hosting to connect Bolivia with buyers in China, Latin America and the United States.",
     ctx_role_label:'Role', ctx_role:'Designer + Dev', ctx_role_sub:'End-to-end · Solo',
     ctx_platform_label:'Platforms', ctx_result_label:'Result', ctx_result:'Site live',
     problem_label:'The Problem', problem_title:"They existed, but nobody knew.",
-    problem_desc1:'The team behind Granotrade had been operating in the Bolivian agro-export sector for years — but always as service providers for third parties. They had the knowledge, the contacts and the quality. What they lacked was an identity of their own.',
+    problem_desc1:'The team behind Granotrade had been operating in the Bolivian agro-export sector for years, always as service providers for third parties. They had the knowledge, the contacts and the quality. What they lacked was an identity of their own.',
     problem_desc2:'When they decided to create Granotrade and target buyers directly in China, Latin America and the United States, the first obstacle was the most basic: they had no digital presence. No website, no domain, no visual brand. For an international buyer, they simply did not exist.',
     pain1_title:'No digital presence', pain1_desc:'Zero website, zero domain, zero corporate email. A buyer in China searching for Granotrade would find nothing.',
     pain2_title:'Demanding international market', pain2_desc:'International buyers assess digital credibility before any negotiation. The first impression happens on the web.',
@@ -763,10 +836,11 @@ const T = {
     feat4_title:'Scroll animations', feat4_desc:'IntersectionObserver reveal animations, animated counters, and iOS-fixed parallax.',
     feat5_title:'Domain + Hosting managed', feat5_desc:'Purchase and configuration of granotrade.es + production server. Full turnkey delivery.',
     feat6_title:'Fully responsive', feat6_desc:'Design adapted to mobile, tablet and desktop. Hamburger menu, iOS parallax fix and touch navigation.',
-    cta_label:'Live site', cta_title:'The site is live.', cta_desc:'Granotrade is already receiving international visits at granotrade.es — their first digital presence as an independent exporter.',
+    cta_label:'Live site', cta_title:'The site is live.', cta_desc:'Granotrade is already receiving international visits at granotrade.es, their first digital presence as an independent exporter.',
     cta_btn:'Visit granotrade.es', cta_back:'See more projects',
     footer_copy:'© 2026 Sebastian Delgado', footer_back:'← Back to portfolio',
     zoom_btn:'View full',
+    tab_desktop:'Desktop', tab_mobile:'Mobile',
     slide_home:'Home', slide_products:'Products', slide_services:'Services', slide_about:'About', slide_contact:'Contact'
   }
 };
@@ -829,6 +903,43 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ lb.classList.remo
   window.gtGoTo = i=>{ idx=i; update(); };
   update();
 })();
+
+// ── Carrusel wireframes ───────────────────────────────────────────
+(()=>{
+  let idx=0; const total=5;
+  const track=document.getElementById('wfTrack');
+  const dots=document.querySelectorAll('#wfDots .carousel-dot');
+  function update(){ if(!track) return; track.style.transform=`translateX(-${idx*100}%)`; dots.forEach((d,i)=>d.classList.toggle('active',i===idx)); }
+  window.wfMove = dir=>{ idx=(idx+dir+total)%total; update(); };
+  window.wfGoTo = i=>{ idx=i; update(); };
+  update();
+})();
+
+// ── Carrusel screenshots móvil ────────────────────────────────────
+(()=>{
+  let idx=0; const total=5;
+  const track=document.getElementById('gtMobileTrack');
+  const dots=document.querySelectorAll('#gtMobileDots .carousel-dot');
+  function update(){ if(!track) return; track.style.transform=`translateX(-${idx*100}%)`; dots.forEach((d,i)=>d.classList.toggle('active',i===idx)); }
+  window.gtMobileMove = dir=>{ idx=(idx+dir+total)%total; update(); };
+  window.gtMobileGoTo = i=>{ idx=i; update(); };
+  update();
+})();
+
+// ── Toggle Desktop / Móvil ───────────────────────────────────────
+window.gtSwitchTab = tab=>{
+  const desktop=document.getElementById('gtDesktopCar');
+  const mobile=document.getElementById('gtMobileCar');
+  const tD=document.getElementById('tabDesktop');
+  const tM=document.getElementById('tabMobile');
+  if(tab==='desktop'){
+    desktop.classList.remove('hidden'); mobile.classList.add('hidden');
+    tD.classList.add('ss-tab-active'); tM.classList.remove('ss-tab-active');
+  } else {
+    mobile.classList.remove('hidden'); desktop.classList.add('hidden');
+    tM.classList.add('ss-tab-active'); tD.classList.remove('ss-tab-active');
+  }
+};
 </script>
 </body>
 </html>
