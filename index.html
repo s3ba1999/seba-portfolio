@@ -692,7 +692,15 @@
       <article data-reveal="up" data-delay="3" class="project-card glass-card rounded-3xl overflow-hidden group cursor-pointer">
         <div class="relative h-60 overflow-hidden flex items-center justify-center"
           style="background:radial-gradient(ellipse at 60% 50%, #1a4000 0%, #0a1f00 55%, #060e03 100%)">
-          <img src="img/Granotrade/mockup.jpg" alt="Granotrade mockup" class="w-full h-full object-cover object-center"/>
+          <!-- glow orbs -->
+          <div class="absolute w-48 h-48 rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(62,121,7,.22) 0%,transparent 70%); top:-20px; right:-10px; filter:blur(18px)"></div>
+          <div class="absolute w-32 h-32 rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(218,144,11,.14) 0%,transparent 70%); bottom:-10px; left:10px; filter:blur(14px)"></div>
+          <!-- mockup PNG con transparencia -->
+          <img src="img/Granotrade/mockup 1.png" alt="Granotrade mockup"
+            class="relative z-10 h-56 w-auto object-contain group-hover:scale-105 transition-transform duration-700"
+            style="filter:drop-shadow(0 10px 28px rgba(0,0,0,.5)) drop-shadow(0 0 24px rgba(62,121,7,.28));"/>
+          <!-- bottom fade -->
+          <div class="absolute inset-x-0 bottom-0 h-16 pointer-events-none" style="background:linear-gradient(to top,rgba(6,14,3,.85),transparent)"></div>
           <div class="absolute top-4 left-4">
             <span class="text-[10px] font-bold px-2.5 py-1 rounded-full text-white/90" style="background:rgba(62,121,7,.55); border:1px solid rgba(134,239,172,.25);" data-i18n="gt_type">B2B · Exportación</span>
           </div>

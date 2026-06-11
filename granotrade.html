@@ -239,9 +239,12 @@
 
       <!-- RIGHT — mockup flotante -->
       <div data-reveal="right" data-delay="2" class="hidden lg:flex lg:col-span-1 items-center justify-center">
-        <div class="relative flex items-center justify-center">
-          <div class="absolute inset-0 rounded-[3rem] pointer-events-none" style="background:radial-gradient(ellipse at center,rgba(62,121,7,.22) 0%,rgba(218,144,11,.06) 55%,transparent 75%); filter:blur(6px);"></div>
-          <img src="img/Granotrade/mockup.jpg" alt="Granotrade mockup" class="relative rounded-2xl shadow-2xl anim-float w-full max-w-sm" style="border:2px solid rgba(62,121,7,.20); animation-duration:6s;"/>
+        <div class="hero-img-wrap hero-img-float relative">
+          <div class="hero-img-bg absolute -inset-8 rounded-[3rem]"
+            style="background:radial-gradient(ellipse at center,rgba(62,121,7,.18) 0%,rgba(218,144,11,.08) 55%,transparent 75%); z-index:-1; pointer-events:none;"></div>
+          <img src="img/Granotrade/mockup 1.png" alt="Granotrade mockup"
+            class="relative z-10 w-full h-auto object-contain block"
+            style="filter:drop-shadow(0 20px 42px rgba(0,0,0,.30)) drop-shadow(0 0 32px rgba(62,121,7,.22));"/>
         </div>
       </div>
 
