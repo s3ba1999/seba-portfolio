@@ -88,6 +88,8 @@
     [data-delay="5"]{transition-delay:.40s;}
 
     .orb { position:absolute; border-radius:9999px; filter:blur(72px); pointer-events:none; }
+    @keyframes heroFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+    .hero-img-float { animation:heroFloat 5s ease-in-out infinite; }
 
     .lang-btn { padding:.15rem .4rem; border-radius:.25rem; transition:all .25s; }
     .lang-btn.is-active   { color:#3e7907; font-weight:700; }
@@ -172,7 +174,7 @@
 <!-- ══════════════════════════════
      HERO
 ══════════════════════════════ -->
-<section class="relative pt-28 pb-16 px-5 sm:px-8 overflow-hidden">
+<section class="relative pt-20 pb-10 px-5 sm:px-8 overflow-hidden">
   <div class="orb w-[480px] h-[480px] bg-[#3e7907]/8 -top-24 -right-24"></div>
   <div class="orb w-[300px] h-[300px] bg-[#da900b]/7 bottom-0 -left-16"></div>
 
@@ -246,8 +248,8 @@
           <div class="hero-img-bg absolute -inset-8 rounded-[3rem]"
             style="background:radial-gradient(ellipse at center,rgba(62,121,7,.18) 0%,rgba(218,144,11,.08) 55%,transparent 75%); z-index:-1; pointer-events:none;"></div>
           <img src="img/Granotrade/mockup 1.png" alt="Granotrade mockup"
-            class="relative z-10 w-full h-auto object-contain block"
-            style="filter:drop-shadow(0 20px 42px rgba(0,0,0,.30)) drop-shadow(0 0 32px rgba(62,121,7,.22));"/>
+            class="relative z-10 h-auto object-contain block"
+            style="max-width:380px; filter:drop-shadow(0 20px 42px rgba(0,0,0,.30)) drop-shadow(0 0 32px rgba(62,121,7,.22));"/>
         </div>
       </div>
 
