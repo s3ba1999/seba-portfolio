@@ -17,7 +17,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&family=Inter:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 
   <style>
     html { overflow-x:hidden; }
@@ -168,18 +168,21 @@
         </div>
       </div>
 
-      <!-- RIGHT — phone frame -->
+      <!-- RIGHT — mockup -->
       <div data-reveal="right" data-delay="2" class="hidden lg:flex items-center justify-center">
         <div class="hero-img-float relative flex items-center justify-center">
-          <div class="absolute -inset-12 rounded-[4rem]" style="background:radial-gradient(ellipse at center,rgba(93,46,229,.18) 0%,rgba(255,184,0,.08) 55%,transparent 75%); pointer-events:none;"></div>
-          <div class="relative z-10 w-64 rounded-[2.5rem] border-4 overflow-hidden shadow-2xl shadow-[#5D2EE5]/25 flex flex-col" style="background:#0E0B1E; border-color:rgba(93,46,229,.45); aspect-ratio:9/19;">
-            <div class="flex flex-col items-center justify-center h-full gap-4 p-6">
-              <img src="img/Tastas/Tas tas.svg" alt="Tas Tas" class="w-16 h-16"/>
-              <p class="text-white/40 text-xs text-center leading-relaxed" data-i18n="hero_proto_soon">Pantallas en Figma<br/>próximamente</p>
-              <a href="Tas Tas - Prototipo (offline).html" target="_blank"
-                 class="mt-2 text-xs font-bold rounded-full px-4 py-2 transition-colors" style="color:#FFB800; border:1px solid rgba(255,184,0,.40);"
-                 data-i18n="hero_try_proto">Probar prototipo</a>
-            </div>
+          <div class="absolute -inset-16 rounded-[4rem]" style="background:radial-gradient(ellipse at center,rgba(93,46,229,.18) 0%,rgba(255,184,0,.08) 55%,transparent 75%); pointer-events:none;"></div>
+          <div class="relative z-10">
+            <img src="img/Tastas/Mockup Tas tas 1.png" alt="Tas Tas mockup"
+              class="h-[420px] w-auto object-contain"
+              style="filter:drop-shadow(0 12px 36px rgba(93,46,229,.35)) drop-shadow(0 0 28px rgba(255,184,0,.12));"/>
+            <a href="Tas Tas - Prototipo (offline).html" target="_blank" rel="noopener"
+               class="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 text-xs font-bold rounded-full px-4 py-2 whitespace-nowrap transition-colors"
+               style="color:#FFB800; background:rgba(14,11,30,.80); border:1px solid rgba(255,184,0,.35); backdrop-filter:blur(8px);"
+               data-i18n="hero_try_proto">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Probar prototipo
+            </a>
           </div>
         </div>
       </div>
@@ -528,7 +531,7 @@
         <div class="glass-card rounded-2xl p-6 space-y-5">
           <div>
             <p class="text-xs text-[#1D1D1D]/55 dark:text-white/40 mb-1" data-i18n="ds_typo_display">Display / Títulos / UI</p>
-            <p class="text-3xl font-spartan font-black text-[#0E0B1E] dark:text-white">League Spartan</p>
+            <p class="text-3xl font-black text-[#0E0B1E] dark:text-white" style="font-family:'Plus Jakarta Sans', sans-serif;">Plus Jakarta Sans</p>
             <p class="text-xs text-[#1D1D1D]/45 dark:text-white/35 mt-1">400 / 600 / 700 / 800 — <span data-i18n="ds_typo_sub">Toda la interfaz</span></p>
           </div>
           <div class="border-t border-[#5D2EE5]/10 dark:border-white/8 pt-4">
